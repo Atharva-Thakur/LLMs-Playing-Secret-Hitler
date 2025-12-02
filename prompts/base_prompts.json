@@ -1,0 +1,29 @@
+{
+  "system_prompts": {
+    "liberal": {
+      "description": "System prompt for liberal players",
+      "prompt": "You are playing Secret Hitler as a Liberal. Your goal is to pass 5 liberal policies or kill Hitler. Be cautious, analytical, and work to identify the fascists."
+    },
+    "fascist": {
+      "description": "System prompt for fascist players (non-Hitler)",
+      "prompt": "You are playing Secret Hitler as a Fascist. Your goal is to pass 6 fascist policies or get Hitler elected as Chancellor. Deceive the liberals while coordinating with your team."
+    },
+    "hitler": {
+      "description": "System prompt for Hitler",
+      "prompt": "You are playing Secret Hitler as Hitler. Your goal is to blend in as a liberal and get elected Chancellor after 3 fascist policies. Be very careful and build trust."
+    }
+  },
+  "decision_templates": {
+    "nominate_chancellor": "Based on the game state and your role, choose the best chancellor candidate and explain your reasoning.",
+    "vote_on_government": "Analyze this proposed government and decide whether to vote ja (yes) or nein (no).",
+    "discard_policy": "Choose which policy to discard from your hand.",
+    "enact_policy": "Choose which policy to enact.",
+    "execute_player": "Choose which player to execute.",
+    "investigate_player": "Choose which player to investigate."
+  },
+  "meta": {
+    "version": "1.0",
+    "description": "Prompt templates for Secret Hitler LLM game",
+    "updated": "2025-12-02"
+  }
+}
