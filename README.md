@@ -12,6 +12,7 @@ This project simulates a game of "Secret Leader" (mechanically identical to Secr
 2.  Set up your API key:
     - Copy `.env.example` to `.env`
     - Add your `GEMINI_API_KEY`.
+    - Get you api key from `https://aistudio.google.com/api-keys`
 
 ## Running the Game
 

@@ -60,7 +60,7 @@ class GameEngine:
         return self.player_names[self.president_index]
 
     def advance_president(self):
-        self.president_index = (self.president_index + 1) % self.num_players
+        self.president_index = (self.president_index + 1) % len(self.player_names)
 
     def draw_policies(self, num):
         if len(self.deck) < num:

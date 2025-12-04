@@ -63,6 +63,18 @@ class LLMClient:
         try:
             response = self.model.generate_content(prompt)
             self.last_request_time = time.time()
+            
+            if not response.candidates:
+                raise ValueError("Gemini returned no candidates.")
+            
+            candidate = response.candidates[0]
+            if not candidate.content.parts:
+                finish_reason = getattr(candidate, 'finish_reason', 'Unknown')
+                safety_ratings = getattr(candidate, 'safety_ratings', 'Unknown')
+                prompt_feedback = getattr(response, 'prompt_feedback', 'Unknown')
+                logger.warning(f"Gemini returned candidate with no parts. Finish reason: {finish_reason}, Safety: {safety_ratings}, Feedback: {prompt_feedback}")
+                raise ValueError(f"Gemini returned candidate with no content parts. Finish reason: {finish_reason}")
+
             return response.text
         except Exception as e:
             logger.error(f"Error generating response from Gemini: {e}")

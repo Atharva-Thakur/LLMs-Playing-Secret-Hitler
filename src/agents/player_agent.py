@@ -76,9 +76,9 @@ class PlayerAgent:
         log_player_thought(self.name, thought)
         return output
 
-    def discuss(self, game_state, recent_events):
+    def discuss(self, game_state, recent_events, discussion_history=""):
         system_prompt = self._build_system_prompt(game_state, "Discussion")
-        user_prompt = DISCUSSION_PROMPT.format(recent_events=recent_events)
+        user_prompt = DISCUSSION_PROMPT.format(recent_events=recent_events, discussion_history=discussion_history)
         speech = self._query_llm(system_prompt, user_prompt)
         log_player_speech(self.name, speech)
         return speech

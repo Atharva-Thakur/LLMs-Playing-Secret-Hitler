@@ -31,6 +31,9 @@ The floor is open for discussion.
 Recent Events:
 {recent_events}
 
+Discussion so far:
+{discussion_history}
+
 What do you want to say to the group?
 """
 

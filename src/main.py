@@ -53,19 +53,34 @@ class GameController:
         
         # 1. Nomination
         eligible_chancellors = [p for p in self.engine.player_names if p != president_name and p != self.engine.previous_chancellor]
-        if self.engine.num_players > 5 and self.engine.previous_president:
+        if len(self.engine.player_names) > 5 and self.engine.previous_president:
              if self.engine.previous_president in eligible_chancellors:
                  eligible_chancellors.remove(self.engine.previous_president)
 
         chancellor_nominee = president_agent.nominate_chancellor(self.engine.get_public_game_state(), eligible_chancellors)
         log_game_event(f"President {president_name} nominates {chancellor_nominee} for Chancellor.")
         
-        # 2. Discussion (Simplified: Everyone speaks once)
-        # In a real game, this is dynamic. Here, we'll let a few random players speak or just the nominee and president.
-        # Let's let everyone speak briefly.
+        # 2. Discussion
         recent_events = f"{president_name} nominated {chancellor_nominee}."
-        for name in self.engine.player_names:
-            self.agents[name].discuss(self.engine.get_public_game_state(), recent_events)
+        discussion_history = ""
+        
+        # Round 1: Everyone speaks
+        log_system("--- Discussion Round 1 ---")
+        # Shuffle order each discussion round so it's not always the same people speaking first
+        speakers = list(self.engine.player_names)
+        random.shuffle(speakers)
+        
+        for name in speakers:
+            speech = self.agents[name].discuss(self.engine.get_public_game_state(), recent_events, discussion_history)
+            discussion_history += f"{name}: {speech}\n"
+
+        # Round 2: President and Chancellor Nominee respond/conclude
+        log_system("--- Discussion Round 2 (Key Players) ---")
+        key_speakers = [president_name, chancellor_nominee]
+        
+        for name in key_speakers:
+            speech = self.agents[name].discuss(self.engine.get_public_game_state(), recent_events, discussion_history)
+            discussion_history += f"{name}: {speech}\n"
 
         # 3. Voting
         votes = {}
@@ -78,7 +93,7 @@ class GameController:
         
         log_game_event(f"Votes: {votes}")
         
-        if ja_votes > self.engine.num_players / 2:
+        if ja_votes > len(self.engine.player_names) / 2:
             log_game_event("Vote Passed!")
             self.engine.previous_president = president_name
             self.engine.previous_chancellor = chancellor_nominee
@@ -177,12 +192,12 @@ class GameController:
             # Let's skip the "return to normal order" complexity for this MVP and just change the president.
             try:
                 new_index = self.engine.player_names.index(target)
-                self.engine.president_index = (new_index - 1) % self.engine.num_players
+                self.engine.president_index = (new_index - 1) % len(self.engine.player_names)
             except ValueError:
                 pass
 
 if __name__ == "__main__":
-    # Example 5 player game
-    players = ["Alice", "Bob", "Charlie", "David", "Eve"]
+    # Example 7 player game
+    players = ["Alice", "Bob", "Charlie", "David", "Eve", "Mark", "Nina"]
     controller = GameController(players)
     controller.run_game()
