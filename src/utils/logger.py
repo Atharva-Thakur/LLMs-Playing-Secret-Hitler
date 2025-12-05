@@ -59,7 +59,58 @@ def setup_logger(log_dir="logs"):
 
     return logger
 
-logger = setup_logger()
+def reconfigure_logger(log_file_path):
+    """
+    Reconfigures the logger to append to the specified log file.
+    """
+    logger = logging.getLogger("SecretHitlerLogger")
+    
+    # Remove existing file handlers
+    for handler in logger.handlers[:]:
+        if isinstance(handler, logging.FileHandler):
+            logger.removeHandler(handler)
+            handler.close()
+            
+    # Determine paths
+    log_file = log_file_path
+    if log_file.endswith(".log"):
+        json_log_file = log_file.replace(".log", ".jsonl")
+    elif log_file.endswith(".jsonl"):
+        json_log_file = log_file
+        log_file = log_file.replace(".jsonl", ".log")
+    else:
+        json_log_file = log_file + ".jsonl"
+        log_file = log_file + ".log"
+        
+    # Create new handlers
+    f_handler = logging.FileHandler(log_file, mode='a', encoding='utf-8')
+    j_handler = logging.FileHandler(json_log_file, mode='a', encoding='utf-8')
+    
+    f_handler.setLevel(logging.DEBUG)
+    j_handler.setLevel(logging.DEBUG)
+    
+    f_format = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    j_formatter = JsonFormatter('%(asctime)s')
+    
+    f_handler.setFormatter(f_format)
+    j_handler.setFormatter(j_formatter)
+    
+    logger.addHandler(f_handler)
+    logger.addHandler(j_handler)
+    
+    # Log a system message indicating resumption
+    log_system(f"Logger reconfigured. Resuming logging to {log_file}")
+
+# Initialize logger with console handler only on import
+logger = logging.getLogger("SecretHitlerLogger")
+logger.setLevel(logging.DEBUG)
+logger.propagate = False
+if not logger.handlers:
+    c_handler = logging.StreamHandler()
+    c_handler.setLevel(logging.INFO)
+    c_format = logging.Formatter('%(message)s')
+    c_handler.setFormatter(c_format)
+    logger.addHandler(c_handler)
 
 def log_player_action(player_name, action, details):
     extra = {"log_type": "action", "log_data": {"player": player_name, "action": action, "details": details}}

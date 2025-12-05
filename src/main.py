@@ -1,16 +1,22 @@
-import time
 import random
+import pickle
+import os
+import sys
 from src.engine.game_state import GameEngine
 from src.agents.player_agent import PlayerAgent
 from src.utils.llm_client import LLMClient
-from src.utils.logger import log_system, log_game_event
+from src.utils.logger import log_system, log_game_event, reconfigure_logger, setup_logger
+
+# DEFAULT_PLAYERS = ["Alice", "Bob", "Charlie", "David", "Eve", "Mark", "Nina"]
+DEFAULT_PLAYERS = ["Alice", "Bob", "Charlie", "David", "Eve"]
 
 class GameController:
-    def __init__(self, player_names):
-        self.engine = GameEngine(player_names)
-        self.agents = {}
-        self.llm_client = LLMClient()
-        self.setup_agents()
+    def __init__(self, player_names=None):
+        if player_names:
+            self.engine = GameEngine(player_names)
+            self.agents = {}
+            self.llm_client = LLMClient()
+            self.setup_agents()
 
     def setup_agents(self):
         # Determine who knows who
@@ -34,14 +40,61 @@ class GameController:
             
             self.agents[name] = PlayerAgent(name, role, party, teammates, self.llm_client)
 
+    def save_game(self, filename="last_game_state.pkl"):
+        # Temporarily remove LLM client references as they might not be picklable
+        temp_client = self.llm_client
+        self.llm_client = None
+        agent_clients = {}
+        for name, agent in self.agents.items():
+            agent_clients[name] = agent.llm_client
+            agent.llm_client = None
+            
+        try:
+            with open(filename, "wb") as f:
+                pickle.dump(self, f)
+            log_system(f"Game state saved to {filename}")
+        except Exception as e:
+            log_system(f"Failed to save game state: {e}")
+        finally:
+            # Restore clients
+            self.llm_client = temp_client
+            for name, agent in self.agents.items():
+                agent.llm_client = agent_clients[name]
+
+    @staticmethod
+    def load_game(filename="last_game_state.pkl"):
+        if not os.path.exists(filename):
+            raise FileNotFoundError(f"Save file {filename} not found.")
+            
+        with open(filename, "rb") as f:
+            controller = pickle.load(f)
+            
+        # Re-initialize LLM client
+        controller.llm_client = LLMClient()
+        for agent in controller.agents.values():
+            agent.llm_client = controller.llm_client
+            
+        # Reconfigure logger if a path was saved
+        if hasattr(controller, 'log_file_path') and controller.log_file_path:
+            reconfigure_logger(controller.log_file_path)
+            
+        log_system(f"Game loaded from {filename}")
+        return controller
+
     def run_game(self):
         log_system("Starting Game Session...")
-        round_num = 1
+        # If resuming, we might want to know the round number. 
+        # For now, we'll just increment from where we think we are or just keep running.
+        # Ideally, round_num should be part of the state, but it's a local variable here.
+        # We can add it to self.
+        if not hasattr(self, 'round_num'):
+            self.round_num = 1
         
         while not self.engine.game_over:
-            log_system(f"--- Round {round_num} ---")
+            self.save_game() # Save before each round
+            log_system(f"--- Round {self.round_num} ---")
             self.play_round()
-            round_num += 1
+            self.round_num += 1
             
         log_system(f"GAME OVER. Winner: {self.engine.winner}")
 
@@ -197,7 +250,44 @@ class GameController:
                 pass
 
 if __name__ == "__main__":
-    # Example 7 player game
-    players = ["Alice", "Bob", "Charlie", "David", "Eve", "Mark", "Nina"]
-    controller = GameController(players)
-    controller.run_game()
+    # Check for resume flag
+    if "--resume" in sys.argv:
+        from src.restore_from_log import restore_game_from_log, find_latest_log_file
+        print("Attempting to resume game...")
+        # 1. Try to restore from the latest log file (most robust method)
+        latest_log = find_latest_log_file()
+        if latest_log:
+            print(f"Found latest log file: {latest_log}")
+            # Reconfigure logger to append to this file
+            reconfigure_logger(latest_log)
+            try:
+                # Restore and update the pickle
+                controller = restore_game_from_log(latest_log)
+                if controller:
+                    print("Successfully restored from log.")
+                    controller.run_game()
+                else:
+                    print("Failed to restore from log.")
+            except Exception as e:
+                print(f"Error restoring from log: {e}")
+                print("Falling back to pickle load...")
+                try:
+                    controller = GameController.load_game()
+                    controller.run_game()
+                except FileNotFoundError:
+                    print("No saved game found.")
+        else:
+            print("No log files found. Trying to load pickle directly...")
+            try:
+                controller = GameController.load_game()
+                controller.run_game()
+            except FileNotFoundError:
+                print("No saved game found. Starting new game.")
+                setup_logger()
+                controller = GameController(DEFAULT_PLAYERS)
+                controller.run_game()
+    else:
+        setup_logger()
+        # Example 7 player game
+        controller = GameController(DEFAULT_PLAYERS)
+        controller.run_game()

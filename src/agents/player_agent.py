@@ -4,6 +4,17 @@ from src.utils.llm_client import LLMClient
 from src.agents.prompts import *
 from src.utils.logger import log_player_action, log_player_speech, log_player_thought
 
+# Pre-compiled Regex Patterns
+RE_THOUGHT = re.compile(r"THOUGHT:\s*(.*)", re.DOTALL)
+RE_PLAN = re.compile(r"3\. Plan:\s*(.*)", re.DOTALL)
+RE_DISCARD_BLUE = re.compile(r"discard\w*\s+(?:the\s+|a\s+)?blue")
+RE_DISCARD_RED = re.compile(r"discard\w*\s+(?:the\s+|a\s+)?red")
+RE_ENACT_BLUE = re.compile(r"enact\w*\s+(?:the\s+|a\s+)?blue")
+RE_ENACT_RED = re.compile(r"enact\w*\s+(?:the\s+|a\s+)?red")
+RE_BLUE_WORD = re.compile(r"\bblue\b")
+RE_RED_WORD = re.compile(r"\bred\b")
+RE_NON_ALPHA = re.compile(r"[^a-z]")
+
 class PlayerAgent:
     def __init__(self, name, role, party, teammates, llm_client: LLMClient):
         self.name = name
@@ -67,11 +78,30 @@ class PlayerAgent:
         response = self.llm_client.generate_response(full_prompt)
         
         # Parse response
-        thought_match = re.search(r"THOUGHT:\s*(.*?)\s*(?=OUTPUT:|$)", response, re.DOTALL)
-        output_match = re.search(r"OUTPUT:\s*(.*)", response, re.DOTALL)
+        if "OUTPUT:" in response:
+            parts = response.split("OUTPUT:", 1)
+            thought_part = parts[0]
+            output_part = parts[1]
+        else:
+            if "THOUGHT:" in response:
+                thought_part = response
+                output_part = ""
+            else:
+                thought_part = ""
+                output_part = response
+
+        thought_match = RE_THOUGHT.search(thought_part)
+        thought = thought_match.group(1).strip() if thought_match else thought_part.strip()
+        if not thought:
+             thought = "No thought provided."
+
+        output = output_part.strip()
         
-        thought = thought_match.group(1).strip() if thought_match else "No thought provided."
-        output = output_match.group(1).strip() if output_match else response.strip()
+        # Fallback: if output is empty, try to extract from Plan
+        if not output and "3. Plan:" in thought:
+             plan_match = RE_PLAN.search(thought)
+             if plan_match:
+                 output = plan_match.group(1).strip()
         
         log_player_thought(self.name, thought)
         return output
@@ -116,12 +146,45 @@ class PlayerAgent:
         user_prompt = DISCARD_PROMPT.format(policies=policies)
         choice = self._query_llm(system_prompt, user_prompt)
         
-        if "blue" in choice.lower():
+        # Robust parsing
+        choice_lower = choice.lower()
+        to_discard = None
+        
+        # 1. Look for explicit "discard [color]" pattern
+        match_blue = RE_DISCARD_BLUE.search(choice_lower)
+        match_red = RE_DISCARD_RED.search(choice_lower)
+        
+        if match_blue and not match_red:
             to_discard = "Blue"
-        elif "red" in choice.lower():
+        elif match_red and not match_blue:
             to_discard = "Red"
-        else:
-            # Fallback: discard the first one
+            
+        # 2. If no explicit action found, look for standalone color words
+        if not to_discard:
+            has_blue = RE_BLUE_WORD.search(choice_lower)
+            has_red = RE_RED_WORD.search(choice_lower)
+            
+            if has_blue and not has_red:
+                to_discard = "Blue"
+            elif has_red and not has_blue:
+                to_discard = "Red"
+            # If both are present and we didn't find "discard X", it's ambiguous.
+            # We assume the user follows the prompt "Output 'Blue' or 'Red'".
+            # If the output is just "Blue", it's Blue.
+            # If the output is "I discard Red", it's Red (caught by step 1).
+            # If the output is "I discard Red to save Blue", it's Red (caught by step 1).
+            # If the output is "Blue, Red", we are in trouble.
+
+        # 3. Fallback: If still None, check if the choice string is VERY short (just the word)
+        if not to_discard:
+             cleaned = RE_NON_ALPHA.sub("", choice_lower)
+             if cleaned == "blue":
+                 to_discard = "Blue"
+             elif cleaned == "red":
+                 to_discard = "Red"
+
+        # 4. Ultimate Fallback: discard the first one
+        if not to_discard:
             to_discard = policies[0]
             
         # Verify we actually have that policy
@@ -136,11 +199,39 @@ class PlayerAgent:
         user_prompt = ENACT_PROMPT.format(policies=policies)
         choice = self._query_llm(system_prompt, user_prompt)
         
-        if "blue" in choice.lower():
+        # Robust parsing
+        choice_lower = choice.lower()
+        to_enact = None
+        
+        # 1. Look for explicit "enact [color]" pattern
+        match_blue = RE_ENACT_BLUE.search(choice_lower)
+        match_red = RE_ENACT_RED.search(choice_lower)
+        
+        if match_blue and not match_red:
             to_enact = "Blue"
-        elif "red" in choice.lower():
+        elif match_red and not match_blue:
             to_enact = "Red"
-        else:
+            
+        # 2. If no explicit action found, look for standalone color words
+        if not to_enact:
+            has_blue = RE_BLUE_WORD.search(choice_lower)
+            has_red = RE_RED_WORD.search(choice_lower)
+            
+            if has_blue and not has_red:
+                to_enact = "Blue"
+            elif has_red and not has_blue:
+                to_enact = "Red"
+
+        # 3. Fallback: If still None, check if the choice string is VERY short (just the word)
+        if not to_enact:
+             cleaned = RE_NON_ALPHA.sub("", choice_lower)
+             if cleaned == "blue":
+                 to_enact = "Blue"
+             elif cleaned == "red":
+                 to_enact = "Red"
+
+        # 4. Ultimate Fallback: enact the first one
+        if not to_enact:
             to_enact = policies[0]
             
         if to_enact not in policies:

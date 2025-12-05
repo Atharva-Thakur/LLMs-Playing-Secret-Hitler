@@ -4845,72 +4845,1054 @@ Regardless of your intent, Charlie, your actions have made this government too r
 
 Therefore, for the safety of the Loyalists and to prevent an immediate game loss, I must vote NO on this government. We need to find a pairing we can genuinely trust, without a single shred of doubt."
 2025-12-04 20:26:17,858 - INFO - [37m[SYSTEM][0m --- Discussion Round 2 (Key Players) ---
-2025-12-04 20:26:22,204 - ERROR - Error generating response from Gemini: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash
-Please retry in 37.972052773s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 250
-}
-, retry_delay {
-  seconds: 37
-}
-]
-2025-12-04 20:26:26,547 - ERROR - Error generating response from Gemini: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash
-Please retry in 33.626818134s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 250
-}
-, retry_delay {
-  seconds: 33
-}
-]
-2025-12-04 20:26:30,891 - ERROR - Error generating response from Gemini: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 250, model: gemini-2.5-flash
-Please retry in 29.284985633s. [links {
-  description: "Learn more about Gemini API quotas"
-  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
-}
-, violations {
-  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
-  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
-  quota_dimensions {
-    key: "model"
-    value: "gemini-2.5-flash"
-  }
-  quota_dimensions {
-    key: "location"
-    value: "global"
-  }
-  quota_value: 250
-}
-, retry_delay {
-  seconds: 29
-}
-]
+
+2025-12-05 18:34:13,765 - INFO - [37m[SYSTEM][0m Logger reconfigured. Resuming logging to logs/game_session_20251204_193220.log
+2025-12-05 18:35:22,205 - INFO - [37m[SYSTEM][0m Logger reconfigured. Resuming logging to logs/game_session_20251204_193220.log
+2025-12-05 18:35:22,207 - INFO - [37m[SYSTEM][0m Game Setup Complete. Players: ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Mark', 'Nina']
+2025-12-05 18:35:22,207 - INFO - [37m[SYSTEM][0m Roles (SECRET): {'Alice': 'Spy', 'Bob': 'Loyalist', 'Charlie': 'Loyalist', 'David': 'Master Spy', 'Eve': 'Spy', 'Mark': 'Loyalist', 'Nina': 'Loyalist'}
+2025-12-05 18:35:22,217 - INFO - [37m[SYSTEM][0m Game state saved to last_game_state.pkl
+2025-12-05 18:35:22,218 - INFO - [37m[SYSTEM][0m Starting Game Session...
+2025-12-05 18:35:22,218 - INFO - [37m[SYSTEM][0m Game state saved to last_game_state.pkl
+2025-12-05 18:35:22,218 - INFO - [37m[SYSTEM][0m --- Round 13 ---
+2025-12-05 18:35:22,219 - INFO - [33m[GAME][0m President is Charlie
+2025-12-05 18:35:31,337 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1.  **Analysis:**
+    *   I am Charlie, a Loyalist. My goal is to enact 5 Blue Protocols or execute the Master Spy.
+    *   The game state is dire: 1 Blue Protocol, 5 Red Protocols. This means Spies are one Red Protocol away from a legislative win.
+    *   CRITICAL WARNING: With 5 Red Protocols enacted, if the Master Spy is elected Chancellor, the Spies win *immediately*. This is the absolute highest priority to prevent.
+    *   I am the President. I must nominate a Chancellor.
+    *   Eligible Chancellors: Alice, Bob, Eve, Mark.
+    *   **Private Knowledge:** I investigated Bob and found out he is a Spy. This is crucial information.
+
+2.  **Strategy:**
+    *   My immediate, overriding goal is to prevent the Spies from winning *right now* by electing the Master Spy as Chancellor. This means I absolutely *cannot* nominate Bob, as he is a known Spy, and could be the Master Spy.
+    *   I also need to avoid nominating any other potential Spy if possible. Since I have no information on Alice, Eve, or Mark, I must choose one of them.
+    *   I need to nominate someone I *hope* is a Loyalist to form a Loyalist government. If a Loyalist is elected Chancellor, even if the deck is bad, the Master Spy win condition is averted for this round.
+    *   I should avoid revealing my investigation of Bob immediately unless it's necessary to swing votes, as it paints a target on my back. For now, I'll make a nomination that looks like a genuine attempt to get a Loyalist government.
+
+3.  **Plan:**
+    *   Rule out Bob completely.
+    *   Choose one of the remaining eligible players (Alice, Eve, Mark) to nominate. Since I have no further information, the choice among these three is arbitrary in terms of who is a Loyalist/Spy. I will pick Alice.
+    *   My public statement should emphasize the critical state of the game and the need for a Loyalist government to prevent the immediate Spy victory.
+2025-12-05 18:35:31,338 - INFO - [36m[ACTION][0m Charlie: Nominated - Alice
+2025-12-05 18:35:31,338 - INFO - [33m[GAME][0m President Charlie nominates Alice for Chancellor.
+2025-12-05 18:35:31,338 - INFO - [37m[SYSTEM][0m --- Discussion Round 1 ---
+2025-12-05 18:36:01,419 - INFO - [35m[THOUGHT][0m Nina: (Internal) 1.  **Analysis:**
+    *   **My Role:** Spy (Nina).
+    *   **My Party:** Spy.
+    *   **Known Spies:** Bob, Mark. The Master Spy is one of them. (Let's assume Mark is the Master Spy for internal consistency).
+    *   **Game State:** 5/6 Red Protocols enacted. This is critical. One more Red Protocol wins the game for Spies. Also, if the Master Spy (Mark) is elected Chancellor, Spies win *immediately*.
+    *   **Current Situation:** Charlie (President) nominated Alice (Chancellor).
+    *   **Alice's Role:** Not the Master Spy (since the Master Spy is either Bob or Mark).
+    *   **Charlie's Role:** Unknown. Could be Loyalist or Spy.
+    *   **Implication of Charlie/Alice government:** If elected, they draw 3 protocols. With 5 Red Protocols already out, the deck is heavily skewed towards Red. It is highly probable that Alice, as Chancellor, will be forced to enact a Red Protocol (e.g., if 2 Red and 1 Blue are drawn). This would be a Spy win.
+    *   **Loyalist Perspective:** Loyalists would be extremely paranoid at this stage. They would question *any* nomination intensely, trying to avoid the 6th Red Protocol at all costs. They would likely want to elect someone they *absolutely* trust or fail to form a government to prevent a Red being enacted (though failing 3 times leads to a top-deck protocol, which could also be Red).
+    *   **My Goal:** Get a 6th Red Protocol enacted, or get Mark elected Chancellor. This Charlie-Alice nomination has a good chance of achieving the former.
+
+2.  **Strategy:**
+    *   My immediate goal is to win the game. The Charlie/Alice nomination, while not an immediate Master Spy win, presents a high probability of enacting the 6th Red Protocol due to deck composition. Therefore, I want this government to pass.
+    *   However, as a Spy, I need to maintain my cover. Overt enthusiasm for *any* government at 5 Red Protocols would make me look suspicious to Loyalists.
+    *   I should act like a cautious Loyalist: express the gravity of the situation, question the nomination, and demand accountability from Charlie and Alice. This aligns with what a Loyalist *should* be doing.
+    *   By doing so, I might gather information on Charlie or Alice's reactions, and I maintain my "Loyalist" persona.
+    *   Ultimately, I will likely vote YES, but my public statement will reflect initial suspicion and caution.
+
+3.  **Plan:**
+    *   Acknowledge the extreme danger of 5 Red Protocols.
+    *   Directly question Charlie's choice of Alice and Alice's intentions if elected. This puts pressure on them to defend themselves and appear trustworthy.
+    *   Emphasize the need for extreme caution and certainty.
+2025-12-05 18:36:01,419 - INFO - [32m[SPEECH][0m Nina: ""This is an incredibly dangerous moment. 5 Red Protocols means we are one step away from losing everything. Charlie, nominating Alice right now, we need to know your reasoning. What makes you absolutely sure she's the right person to be Chancellor given the situation? Alice, what's your plan if you're faced with multiple Red Protocols? We cannot afford to make a mistake here.""
+2025-12-05 18:36:17,879 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1.  Analysis:
+    *   My Role: Loyalist.
+    *   Game State: 5 Red Protocols. If the Master Spy (MS) is elected Chancellor, Spies win immediately. If a 6th Red Protocol is enacted (and it's not the MS as Chancellor), Spies also win. This is extremely high stakes.
+    *   Private Information: I investigated Bob and confirmed he is a Spy. This is critical information that must be shared immediately.
+    *   Recent Events: I, Charlie, nominated Alice.
+    *   Nina's Question: Nina is expressing appropriate caution due to the game state and questioning my nomination of Alice. This is a good sign of a careful Loyalist.
+    *   My Goal: Prevent a Spy victory. Use my information to identify the MS or pass Blue Protocols.
+
+    *   **Immediate Danger:** The Master Spy getting elected Chancellor. We *must* prevent this. My info on Bob is the only concrete piece of evidence I have right now.
+    *   **Why Alice?** My nomination of Alice needs to be explained in light of the Bob information. I can frame it as a strategic move given my knowledge.
+
+2.  Strategy:
+    *   **Primary Objective:** Prevent the Master Spy from being Chancellor.
+    *   **Secondary Objective:** Provide concrete evidence to the Loyalists, disrupting Spy plans and guiding future decisions.
+    *   **Specific Actions:**
+        1.  Acknowledge Nina's concern and the critical situation.
+        2.  Reveal my investigation result: Bob is a Spy. This immediately removes Bob from any trusted position and makes everyone wary of his votes/actions.
+        3.  Explain my nomination of Alice *in light of knowing Bob is a Spy*. This makes my nomination seem strategic and demonstrates my Loyalist actions. I can say I nominated Alice as a safer option than others, especially Bob, in an attempt to pass a Blue Protocol.
+        4.  Emphasize that Bob cannot be President or Chancellor.
+        5.  Stress that *any* Chancellor chosen now *must* enact a Blue Protocol to prove loyalty, otherwise they become the prime suspect for the Master Spy. This puts pressure on Alice (or anyone else) if they get the Chancellor role.
+
+3.  Plan:
+    *   Start by validating Nina's point about the danger.
+    *   Deliver the Bob information clearly and authoritatively.
+    *   Connect my Alice nomination to the Bob information.
+    *   Set clear expectations for the next Chancellor.
+2025-12-05 18:36:17,880 - INFO - [32m[SPEECH][0m Charlie: ""Nina, you are absolutely right, this is the most dangerous moment of the game. 5 Red Protocols means we are one misstep away from losing. The Master Spy *cannot* become Chancellor.
+
+I need to share critical information with everyone. I used my investigation power, and I can confirm: **Bob is a Spy.**
+
+My nomination of Alice was made after I confirmed Bob's party. With Bob out of the question for any government role, I nominated Alice because I believed she was a safer option to try and push through a Blue Protocol, given the extreme situation.
+
+Moving forward, Bob cannot be trusted in any position. And for any government we elect now, the Chancellor *must* enact a Blue Protocol. If they don't, they are highly suspect as the Master Spy. We cannot risk enacting another Red Protocol, and we especially cannot risk the Master Spy taking the Chancellor seat.""
+2025-12-05 18:36:38,685 - INFO - [35m[THOUGHT][0m Bob: (Internal) 1.  **Analysis:** I am Bob, a Spy. My teammates are Nina and Mark. The Master Spy (let's assume for this thought process it's Mark, as I know who it is) can win us the game instantly if elected Chancellor, given we have 5 Red Protocols. Charlie, who was President and had an investigation power, has just publicly declared that I am a Spy based on his investigation. This is a truthful accusation from a Loyalist (Charlie), and it is devastating to my position. Nina (my fellow Spy) is playing the concerned Loyalist, which is good. Charlie's nomination of Alice is an attempt to get a Blue Protocol enacted, as he believes I am a Spy and he wants to remove me from contention. If Loyalists believe Charlie, I am politically dead, and it will be much harder to elect Mark (or Nina) as Chancellor. My immediate priority is damage control and discrediting Charlie.
+
+2.  **Strategy:** My immediate goal is to strongly deny Charlie's accusation and, crucially, to turn the tables on him by accusing *him* of being a Spy, or even the Master Spy, who is trying to sow chaos and frame Loyalists. This must be done with conviction to make Loyalists doubt Charlie's claim. I need to make Charlie look like the one manipulating the game at this critical juncture. My long-term goal remains to get 1 more Red Protocol or, ideally, get the Master Spy (Mark) elected as Chancellor to win immediately.
+
+3.  **Plan:** I will express extreme outrage and deny Charlie's claim outright. I will then accuse Charlie of being a Spy who is attempting to cause disunity and frame me (a supposed Loyalist) to distract from his own party's agenda. I will question his motives for making such a "false" accusation at such a critical moment (5 Red Protocols). I'll suggest he's trying to eliminate a perceived Loyalist threat (me) to clear the path for *his* actual Spy accomplice or even himself as the Master Spy. I need to be aggressive and appear genuinely offended and betrayed.
+2025-12-05 18:36:38,685 - INFO - [32m[SPEECH][0m Bob: ""Charlie, this is an outrageous, disgusting lie! I am a Loyalist, and for you to come out with such a fabrication, at this, the most critical moment of the game, speaks volumes about *your* true allegiance! You were President, you had an investigation power, and *now* you conveniently reveal this, trying to frame an innocent Loyalist like me? This is exactly what a Spy would do! You're trying to sow chaos, to divide us, and to distract from *your own* party's agenda by discrediting me.
+
+Why are you trying to remove a potential Loyalist leader from contention? Because *you* are the Spy, Charlie! You're trying to clear the field for your accomplice, or perhaps even yourself, to get into power. We are at 5 Red Protocols! This is no time for cheap tricks and blatant lies. Don't fall for this, Loyalists! Charlie is the one trying to manipulate the situation and protect the *actual* Master Spy by framing Loyalists like me!""
+2025-12-05 18:36:57,457 - INFO - [35m[THOUGHT][0m Eve: (Internal) 1.  **Analysis:**
+    *   My Role: Loyalist. We have 1 Blue / 5 Red Protocols. This is the most dangerous state. If the Master Spy (MS) becomes Chancellor, Spies win immediately. We absolutely cannot risk enacting a 6th Red Protocol or electing the MS.
+    *   Players: Alice, Bob, Charlie, David, Eve (me), Mark, Nina.
+    *   Recent Event: Charlie nominated Alice.
+    *   Crucial Information: Charlie claims to have investigated and found **Bob is a Spy**. Bob vehemently denies this and accuses Charlie of being the Spy.
+    *   The core of the current discussion is the credibility of Charlie's investigation claim. If Charlie is telling the truth, Bob is a Spy, and we need to react accordingly. If Charlie is lying, then Charlie is a Spy, attempting to sow chaos and frame a Loyalist.
+    *   The timing of Charlie's revelation is suspicious to Bob. Charlie had an investigation power as President. Why reveal it now? He says it was made *after* he confirmed Bob's party. This implies he used his power, confirmed Bob as Spy, and then nominated Alice as a safer option. Bob's counter-argument is that Charlie is trying to clear the field for an accomplice or himself.
+    *   We cannot trust either Charlie or Bob blindly right now. My priority as a Loyalist is to avoid electing a Spy government at all costs, especially one that could contain the Master Spy.
+    *   Alice has been nominated by Charlie. If Charlie is lying, Alice might be his accomplice. If Charlie is telling the truth, Alice might be a genuine Loyalist nominated by a Loyalist President (Charlie).
+
+2.  **Strategy (Loyalist):**
+    *   My immediate goal is to get to the truth regarding Charlie's investigation claim without exposing myself or making a misstep that benefits the Spies.
+    *   I need to express extreme caution given the 5 Red Protocols.
+    *   I must challenge both Charlie and Bob to provide more clarity, specifically regarding the investigation itself. The timing of the reveal is a key point of contention.
+    *   Until clarity is achieved, I should advocate for not supporting any government involving Charlie or Bob, as they are both currently under suspicion. This is the safest Loyalist stance.
+    *   I also need to keep Alice's nomination in perspective. She is part of Charlie's proposed government.
+
+3.  **Plan:**
+    *   Acknowledge the extreme danger and the critical nature of the current accusations.
+    *   Directly address Charlie's investigation claim, asking for details on *when* he investigated Bob and *why* he's revealing it *now*. This tests his consistency and motives.
+    *   Acknowledge Bob's strong denial but state that both claims need scrutiny.
+    *   State my immediate concern that, until this is resolved, neither Charlie nor Bob can be trusted in government roles given the high stakes.
+    *   Express a degree of caution about Alice's nomination because it's linked to Charlie's disputed information.
+2025-12-05 18:36:57,458 - INFO - [32m[SPEECH][0m Eve: ""This is an absolute nightmare scenario. 5 Red Protocols means we are truly on the brink of losing everything. We cannot, under any circumstances, allow the Master Spy to become Chancellor, nor can we enact another Red Protocol. The stakes literally could not be higher.
+
+Charlie, your claim that Bob is a Spy, based on an investigation, is the most critical piece of information shared so far. If true, we need to act on it immediately. If false, it's a deliberate and malicious attempt to mislead us at our most vulnerable moment.
+
+Bob, your denial is as passionate as Charlie's accusation. This 'he said, she said' is exactly what the Spies want right now – chaos and mistrust among Loyalists.
+
+Charlie, I need you to clarify something crucial for us all. You said your nomination of Alice was made *after* you confirmed Bob's party. Can you tell us exactly *when* you investigated Bob? Was it during your presidency? And why did you wait until this very moment, with Alice as your Chancellor nominee, to reveal such vital information? Your explanation here is paramount, because a delay in revealing this information could be interpreted in multiple ways, both good and bad.
+
+Until we can properly verify the truth of this investigation and why it's being revealed now, it is incredibly difficult to trust any government proposition involving either Charlie or Bob. The risk is too high. And Alice, your nomination is now unfortunately cast under the shadow of this immense dispute. We need to focus on what is verifiable and safe.""
+2025-12-05 18:37:14,119 - INFO - [35m[THOUGHT][0m David: (Internal) 1.  **Analysis:**
+    *   **Game State:** 5 Red Protocols, 1 Blue Protocol. Election Tracker 1/3. Master Spy (MS) as Chancellor wins the game. This is the absolute crunch point.
+    *   **My Role:** Loyalist. My goal is to find Spies and enact Blue Protocols. My priority is to prevent the MS from becoming Chancellor and avoid enacting another Red Protocol.
+    *   **Recent Events:** Charlie nominated Alice.
+    *   **Nina's Statement:** Highlights the danger, asks Charlie for reasoning, asks Alice for a plan. Good, cautious Loyalist-aligned questioning.
+    *   **Charlie's Statement:**
+        *   Confirms he was President (implying he *had* an investigation power).
+        *   Claims "Bob is a Spy" based on investigation. This is HUGE. If true, Bob is a Spy. If false, Charlie is a Spy trying to create chaos/frame.
+        *   Explains Alice nomination: "safer option" after confirming Bob.
+        *   Stresses no more Red Protocols, MS cannot be Chancellor.
+        *   **Red Flag:** Why wait until 5 Red Protocols to reveal Bob? This is Eve's excellent point. If Charlie investigated Bob earlier, why wasn't this revealed when it could have helped prevent some of the 5 Red Protocols? This delay is suspicious. A Loyalist would want to reveal a Spy immediately to prevent them from getting into power or influencing votes.
+    *   **Bob's Statement:**
+        *   Vehemently denies Charlie's claim, calls it a lie and framing.
+        *   Accuses Charlie of being a Spy, trying to sow chaos and protect *his* accomplice or get himself into power.
+        *   Highlights the timing: "now you conveniently reveal this." This aligns with my concern and Eve's.
+    *   **Eve's Statement:**
+        *   Echoes the extreme danger.
+        *   Acknowledges the criticality of Charlie's claim.
+        *   Rightly identifies the "he said, she said" as Spy tactics.
+        *   **Crucially:** Asks Charlie *when* he investigated Bob and *why* he waited. This is the key question.
+        *   Concludes that until verified, it's hard to trust governments with Charlie or Bob. This is a very sensible Loyalist position.
+    *   **Summary of Conflict:** Charlie (President) claims Bob is a Spy via investigation. Bob denies, accuses Charlie. Eve is pressing Charlie on *timing* of the reveal.
+    *   **Implications of Charlie's Claim:**
+        *   If Charlie is telling the truth, Bob is a Spy. This is valuable information.
+        *   If Charlie is lying (and is a Spy), he's trying to eliminate Bob (a Loyalist) from contention, perhaps to make room for another Spy, or to create chaos.
+    *   **Implications of Bob's Denial:**
+        *   If Bob is a Loyalist, he's defending himself against a false accusation.
+        *   If Bob is a Spy, he's denying the truth, which is expected.
+    *   **Alice's Position:** She's caught in the middle. Her nomination is now tainted by the Charlie/Bob conflict.
+    *   **The MS:** The Master Spy is somewhere in the group. If the MS is elected Chancellor, we lose.
+
+2.  **Strategy:**
+    *   My immediate goal is to prevent a Red Protocol from being enacted and the MS from becoming Chancellor.
+    *   I need to evaluate Charlie's claim carefully. The timing of his reveal is highly suspicious for a Loyalist.
+    *   I need to push for clarification, specifically on the "when" and "why" of Charlie's investigation reveal, as Eve has done. This is the most logical point of leverage.
+    *   I should not blindly trust Charlie's claim without further justification, nor should I dismiss it outright.
+    *   I need to be wary of *any* government proposal right now. The Election Tracker is 1/3. If this government fails, we have two more chances before a random policy is enacted. If a random policy is enacted and it's Red, we lose. So, the stakes are incredibly high, and we might need to vote *reject* if the government seems too risky, even with the tracker in mind.
+    *   If Charlie is a Spy, his "investigation" is a lie. If Bob is a Spy, his denial is a lie. One of them is definitely lying.
+
+3.  **Plan:**
+    *   Support Eve's line of questioning to Charlie regarding the timing of his investigation reveal. This is the most critical piece of information needed to assess his credibility.
+    *   Express my own concerns about the timing and its implications.
+    *   Highlight the danger of the current situation and the need for *verifiable* information over accusations.
+    *   Avoid taking an immediate side between Charlie and Bob without more information, but acknowledge the severity of the claim.
+    *   Reiterate that *no* Red Protocol can pass, and the MS *cannot* be Chancellor.
+
+    *Self-Correction:* While I need to be cautious, I also need to be clear. I can't just repeat Eve. I need to add my own perspective to reinforce the importance of the question and make my own judgment call based on the answer. The delay *is* highly suspicious for a Loyalist President. A Loyalist would have revealed a Spy much earlier to prevent further damage. This makes Charlie look bad. Bob's denial is expected whether he's a Loyalist or a Spy.
+
+    Therefore, the most productive line for me as a Loyalist is to press Charlie hard on the timing of his reveal. If his explanation is weak, it casts serious doubt on him, potentially pointing to him being a Spy and Bob being a Loyalist. If his explanation is compelling (which is hard to imagine for *this* critical info at *this* stage), then Bob is a Spy.
+
+    My output should focus on this suspicion.
+THOUGHT:
+1.  **Analysis:** The game is at a knife-edge with 5 Red Protocols. One more Red Protocol, or the Master Spy becoming Chancellor, means the Loyalists lose. This is the most critical phase.
+    *   Charlie (President) claims he investigated Bob and found Bob to be a Spy. This is an enormous claim.
+    *   Bob vehemently denies this, accusing Charlie of lying and being a Spy.
+    *   Eve has raised the most important question: *When* did Charlie investigate Bob, and *why* did he wait until this very moment, with Alice as his nominee, to reveal this information? This timing is highly suspicious for a Loyalist President. A Loyalist would want to reveal a confirmed Spy much earlier to prevent them from causing more damage or getting into power.
+    *   Nina has set the stage well, highlighting the danger.
+    *   My role is Loyalist. My primary goal is to identify Spies and prevent the Master Spy from winning. This means scrutinizing Charlie's claim and Bob's denial carefully.
+    *   The "he said, she said" scenario benefits the Spies, creating chaos and mistrust.
+    *   The immediate threat is electing a government that enacts a Red Protocol or has the Master Spy as Chancellor.
+
+2.  **Strategy:** My immediate strategy is to support Eve's line of questioning and press Charlie hard on the timing of his reveal. This is the biggest vulnerability in Charlie's story if he is a Loyalist, and a deliberate tactic if he is a Spy. The explanation for *why now* is paramount. A Loyalist President would have revealed a confirmed Spy immediately. Waiting until 5 Red Protocols and nominating a Chancellor under that cloud makes Charlie's claim highly suspect, even if he *did* investigate. If his explanation for the delay is not watertight, it heavily suggests Charlie is a Spy trying to discredit a Loyalist (Bob) or create a diversion.
+
+3.  **Plan:**
+    *   Acknowledge the extreme danger and the critical nature of Charlie's claim.
+    *   Directly support Eve's query about the timing of Charlie's investigation and revelation.
+    *   Emphasize *why* this timing is so problematic for a Loyalist, pointing out that a Loyalist President would normally reveal such critical information immediately.
+    *   State that Charlie's explanation for this delay will be a major factor in determining his, and thus Bob's, credibility.
+    *   Reinforce the need for verifiable information and extreme caution, especially regarding this nomination.
+2025-12-05 18:37:14,120 - INFO - [32m[SPEECH][0m David: ""Everyone, Eve has hit the nail on the head. We are at 5 Red Protocols, and the next government is literally life or death for the Loyalists. Charlie, your claim that Bob is a Spy, based on an investigation, is the most explosive information we've heard, and if true, it changes everything.
+
+However, the timing of this revelation is what I find deeply troubling, and frankly, highly suspicious. As Eve asked, *when* did you investigate Bob? And more importantly, *why* did you wait until this precise moment – with 5 Red Protocols enacted, an election tracker at 1, and your own nomination of Alice – to reveal such vital information?
+
+If you, as President, truly confirmed a Spy, a Loyalist would typically reveal that immediately to prevent further damage and guide future governments. To hold onto that information until now, when the stakes are so unimaginably high, casts a very long shadow on your actions, Charlie. Your explanation for this delay is absolutely critical. Without a compelling reason for holding back this information, it's very difficult to view your claim, or this nomination, as trustworthy. We need answers, not just accusations, especially now.""
+2025-12-05 18:37:31,592 - INFO - [35m[THOUGHT][0m Alice: (Internal) 1.  **Analysis:** The game is at 5 Red Protocols, one step away from a Spy victory either by a Red Protocol passing or the Master Spy becoming Chancellor. This is the most critical juncture. Charlie has nominated me (Alice) for Chancellor. Immediately after, Charlie revealed he investigated Bob and found him to be a Spy. Bob vehemently denies this and accuses Charlie of being the Spy. Eve and David have both raised the critical issue of the *timing* of Charlie's revelation, asking why he waited until this desperate moment to reveal such vital information. This is the key point of contention and suspicion. My role is Loyalist, and I cannot allow a misstep. I cannot blindly trust Charlie's claim, despite being his nominee, especially given the suspicious timing. The 'he said, she said' benefits Spies by creating chaos.
+
+2.  **Strategy:** My immediate priority is to prevent a Spy victory. This means ensuring the Master Spy is *not* elected Chancellor and that no more Red Protocols are enacted. I need to demonstrate strong Loyalist critical thinking, not blindly accepting a nomination or an unverified accusation. I must address the elephant in the room: Charlie's suspicious timing. My goal is to demand clarity and accountability from Charlie. If he cannot provide a convincing explanation, then this government (Charlie-Alice) is too risky. By articulating this, I solidify my Loyalist standing and put pressure on Charlie to explain himself.
+
+3.  **Plan:** I will acknowledge the extreme danger and the gravity of Charlie's accusation and Bob's denial. I will explicitly echo Eve and David's concern about the timing of Charlie's revelation, stating that it is the most crucial question. I will make it clear that my ability to proceed, and Loyalists' ability to trust this government, hinges entirely on Charlie providing a compelling explanation for his delay in revealing such critical information. I will emphasize that Loyalists cannot afford to take risks based on unverified or suspiciously timed claims, even if it involves my own nomination. This shows I prioritize Loyalist safety over personal ambition or a potentially compromised government.
+2025-12-05 18:37:31,593 - INFO - [32m[SPEECH][0m Alice: ""Everyone, thank you for your incredibly serious and necessary assessments of our situation. 5 Red Protocols is a catastrophic state of affairs, and the next government is literally a matter of life or death for the Loyalists. We absolutely cannot afford to make a single mistake.
+
+Charlie, your claim that Bob is a Spy, based on an investigation, is indeed the most critical piece of information shared. If true, it changes everything. Bob, your passionate denial is also noted.
+
+However, I must echo Eve and David's crucial concern, and it is the single most important question right now: Charlie, *when* exactly did you investigate Bob, and more importantly, *why* did you wait until this very moment, with 5 Red Protocols on the board and the Election Tracker at 1, to reveal such vital information?
+
+As the Chancellor nominee, I cannot and will not proceed without a clear, compelling, and satisfactory answer to that question. A Loyalist who discovers a confirmed Spy would typically reveal that information immediately to prevent further damage. To hold onto it until this eleventh hour, when the stakes are so unimaginably high, casts an undeniable shadow of suspicion on the entire situation, including my own nomination.
+
+My loyalty is to enacting Blue Protocols and finding the Master Spy, not to any particular nomination or personal gain. We cannot trust any government, especially now, if its foundation is built on unverified or suspiciously timed information. We need to be absolutely certain of our path forward, and that requires full transparency from you, Charlie, regarding this investigation and its delayed revelation. Without a truly convincing explanation, this nomination, despite being for me, is simply too risky for Loyalists to support.""
+2025-12-05 18:37:48,413 - INFO - [35m[THOUGHT][0m Mark: (Internal) 1.  **Analysis:**
+    *   **My Role:** Master Spy.
+    *   **My Party:** Spy.
+    *   **Goal:** Enact 6 Red Protocols OR elect Master Spy (me) as Chancellor after 3 Red Protocols. Currently 5 Red Protocols.
+    *   **Current State:** 5 Red Protocols, 1 Blue Protocol. Election Tracker 1/3.
+    *   **Immediate Threat:** If I am elected Chancellor *and* there are 3+ Red Protocols (which there are, 5), Spies win immediately. This is the biggest opportunity.
+    *   **Current Nomination:** Charlie (President) nominated Alice (Chancellor).
+    *   **Key Event:** Charlie claims he investigated Bob and Bob is a Spy.
+    *   **Reactions:**
+        *   Nina: Concerned, wants reasoning from Charlie, plan from Alice.
+        *   Charlie: Accuses Bob of being a Spy based on investigation. Explains Alice nomination was *after* this. Stresses need for Blue Protocol.
+        *   Bob: Passionately denies being a Spy, accuses Charlie of lying and being the real Spy, trying to sow chaos.
+        *   Eve, David, Alice: All raise the same *critical* question: "When did Charlie investigate Bob, and *why* did he wait until 5 Red Protocols and this specific moment to reveal it?" They all view this as highly suspicious and a major red flag for Charlie. Alice even states she won't proceed without a good answer.
+    *   **Spy Advantage:** The "he said, she said" between Charlie and Bob, combined with the suspicion around Charlie's timing, is creating chaos and distrust, which is excellent for Spies.
+    *   **Master Spy's Position (Me):** I need to appear as a perfect Loyalist. I cannot get caught in a lie. My goal is to eventually be elected Chancellor. The current discussion highlights the extreme risk of *any* government. This means Loyalists will be very hesitant to vote YES unless they are absolutely certain.
+    *   **Charlie's Claim:** If Charlie is a Loyalist and *actually* investigated Bob as a Spy, he made a tactical blunder by withholding the info. If Charlie is a Spy, this is a brilliant play to frame a Loyalist or another Spy and sow chaos. If Bob is a Spy, then Charlie might be a Loyalist who caught one, or a Spy framing another Spy.
+    *   **Bob's Denial:** Passionate, sounds convincing, but Spies are good at lying.
+    *   **The "When/Why" Question:** This is the crux. Everyone is focused on it. I *must* address this, echoing the Loyalist concern, to maintain my "perfect Loyalist" façade.
+    *   **Implications for Voting:** A "NO" vote on this government seems like the safest Loyalist move *given the current lack of trust*. If the government passes, and Alice (assuming Loyalist) gets two Red Protocols, we lose. If she gets two Blue, great, but the risk is too high right now. The Master Spy *cannot* be elected Chancellor. If *I* am elected Chancellor, we win. Therefore, I need to push for a situation where I might be elected, or at least survive to the next round.
+    *   **My immediate goal:** Ensure this government (Charlie/Alice) does *not* pass, while appearing as a cautious, logical Loyalist. This will push the election tracker, potentially leading to a new President (possibly me) or a situation where I can be nominated as Chancellor.
+
+2.  **Strategy:**
+    *   **Short-term:** Reinforce the Loyalist concerns about Charlie's delayed revelation. Express deep distrust in the current nomination due to this. Advocate for caution and avoiding immediate loss.
+    *   **Medium-term:** Create more chaos and division among suspected Loyalists (Charlie, Bob, Eve, David, Alice all seem to be trying to be Loyalists, though Bob is accused).
+    *   **Long-term:** Position myself as a trustworthy Loyalist leader who can unite the "true" Loyalists, so I can eventually be nominated and elected Chancellor. My current goal is to *not* be suspected.
+
+3.  **Plan:**
+    *   Acknowledge the extreme danger (5 Red Protocols).
+    *   Echo the collective concern about Charlie's timing. This shows I'm thinking like the "good guys."
+    *   Emphasize that the "when and why" is paramount for *any* trust.
+    *   Express deep skepticism about the current government proposal (Charlie/Alice) *because* of this unresolved issue.
+    *   Suggest that proceeding with such uncertainty is too risky for Loyalists at this stage.
+    *   Avoid making my *own* accusation, as I need to appear neutral and logical. Let Charlie and Bob tear each other down.
+    *   My speech should sound cautious and focused on Loyalist survival, mirroring Alice's, Eve's, and David's sentiments. This builds trust in me.
+
+    *Self-correction:* I should not explicitly say "vote NO." I should phrase it in a way that *implies* voting NO is the responsible Loyalist action, without being overly prescriptive and thus potentially suspicious. Focusing on "risk" and "uncertainty" will achieve this.
+THOUGHT:
+1.  **Analysis:**
+    *   I am the Master Spy. The Spies win immediately if I am elected Chancellor with 3+ Red Protocols enacted (we have 5). This is the absolute highest stake moment of the game.
+    *   Charlie nominated Alice.
+    *   Charlie claims Bob is a Spy based on an investigation, but delayed revealing this information until now, when 5 Red Protocols are on the board.
+    *   Bob vehemently denies being a Spy and accuses Charlie.
+    *   Nina, Eve, David, and Alice have all correctly identified the critical flaw in Charlie's story: the timing of his revelation. They are demanding an explanation for *why* he waited. Alice has stated she cannot proceed without a compelling answer.
+    *   This creates a perfect storm of suspicion and chaos among the Loyalists. Charlie's claim, even if true, is undermined by his timing. Bob's denial is equally passionate. The "he said, she said" is exactly what Spies want.
+    *   My primary goal is to get elected Chancellor. Currently, this specific government (Charlie/Alice) is highly contentious and likely to fail. A failed government pushes the election tracker, potentially leading to a new President who might nominate me, or at least keeps me out of the direct line of fire for now.
+    *   To appear as a perfect Loyalist, I must echo the genuine concerns of the other players, particularly the insightful questions from Eve, David, and Alice. I need to reinforce the idea that this government is too risky without Charlie's clear explanation.
+    *   I cannot afford to make a direct accusation or take a definitive side between Charlie and Bob, as I don't know who the other Spies are, and I need to avoid getting caught in a lie. My role is to appear rational, cautious, and dedicated to finding the *true* Spies, while steering the ship towards my own chancellorship.
+
+2.  **Strategy:**
+    *   **Short-term:** Undermine the current nomination (Charlie/Alice) by reinforcing the collective Loyalist concern about Charlie's delayed revelation. This will likely lead to a "NO" vote, advancing the election tracker.
+    *   **Medium-term:** Maintain my "perfect Loyalist" facade by appearing objective, logical, and focused on risk mitigation. Let Charlie and Bob continue to battle, sowing more division.
+    *   **Long-term:** Position myself as a trustworthy leader who is not swayed by accusations or suspicious timing, making me a more viable Chancellor candidate in a later round.
+
+3.  **Plan:**
+    *   Acknowledge the extreme danger of 5 Red Protocols.
+    *   Validate the concerns raised by Eve, David, and Alice regarding Charlie's timing. This shows I'm aligned with the common Loyalist logic.
+    *   Emphasize that the *reason for the delay* in revealing Bob's supposed Spy status is absolutely paramount for any trust in this government.
+    *   Conclude that, without a satisfactory explanation, supporting this government is an unacceptably high risk for Loyalists at this critical juncture. This indirectly advocates for a "NO" vote without explicitly stating it.
+    *   Avoid making my own accusations or revealing any "information" that could be challenged. Stick to questioning the *process* and *timing* of the information presented.
+2025-12-05 18:37:48,413 - INFO - [32m[SPEECH][0m Mark: ""Everyone, the gravity of this situation cannot be overstated. We are at 5 Red Protocols, and the next government literally determines the fate of this game. The Master Spy's victory condition is within arm's reach, and we *cannot* afford a single misstep.
+
+Charlie, your revelation about Bob being a Spy, based on an investigation, is indeed earth-shattering information. If true, it completely changes the landscape. However, I must echo the profound concerns raised by Eve, David, and Alice. The question of *when* you investigated Bob, and more critically, *why* you chose to withhold this vital information until this precise, eleventh-hour moment, with 5 Red Protocols enacted and Alice nominated, is absolutely paramount.
+
+A Loyalist discovering a confirmed Spy would, in almost all circumstances, reveal that information immediately to prevent further damage and guide the Loyalists. To hold onto it until now, when the stakes are so impossibly high, casts an undeniable, and frankly, deeply troubling shadow over the entire situation.
+
+Without a truly compelling, transparent, and logical explanation for this delay, it is incredibly difficult, if not impossible, for Loyalists to place trust in this government proposal. The risk of error here is simply too great to proceed on a foundation of such uncertainty. We need clarity, not just accusations, before we can make a decision that could win or lose the game.""
+2025-12-05 18:37:48,413 - INFO - [37m[SYSTEM][0m --- Discussion Round 2 (Key Players) ---
+2025-12-05 18:38:09,288 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1. Analysis:
+The game is at 5 Red Protocols, which is the most dangerous state for Loyalists. The Spies win immediately if the Master Spy is elected Chancellor. The Election Tracker is 1/3, meaning we have two more chances before a random policy is enacted. If a Red Protocol is enacted then, Spies win.
+
+I (Charlie) have revealed that Bob is a Spy based on an investigation. This is private knowledge I possess.
+Bob has vehemently denied it and accused me of being a Spy, trying to sow chaos.
+Eve, David, Alice, and Mark have all raised the same critical question: *When* did I investigate Bob, and *why* did I wait until this moment to reveal it? They perceive this delay as highly suspicious, potentially indicating I am a Spy trying to manipulate the situation. Alice, my current nominee, has also expressed this concern and stated she won't proceed without a satisfactory answer.
+
+My previous statement (Charlie: "My nomination of Alice was made after I confirmed Bob's party. With Bob out of the question for any government role, I nominated Alice because I believed she was a safer option to try and push through a Blue Protocol, given the extreme situation.") mentioned "after I confirmed Bob's party." This implies the investigation happened *before* or *during* my nomination phase, but I didn't specify *when* I received the information. The critical missing piece is the *timing of the reveal*.
+
+I am a Loyalist. My goal is to enact 5 Blue Protocols or execute the Master Spy. I know Bob is a Spy. I need to convince everyone of this fact, or at least sow enough doubt about Bob that he cannot be Chancellor, and clear myself of suspicion regarding the delayed reveal.
+
+The suspicion about my delay is legitimate from a Loyalist perspective. A Loyalist would typically reveal a confirmed Spy immediately. However, I need to provide a plausible, *Loyalist-minded* reason for the delay.
+
+Let's consider possible reasons a Loyalist might delay revealing a Spy:
+a. To observe their behavior: To see who they align with, or if they tried to push Red Protocols. This is a common Loyalist strategy.
+b. To use the information strategically at a critical moment: Like now, to prevent a Spy from getting into power or to disrupt a Spy play. This is a high-risk, high-reward move.
+c. To protect their own identity/power: If revealing too early would make me a target. Less likely in this specific scenario with an investigation power.
+d. To wait for a better moment to nominate a government: If I thought revealing it earlier would cause too much chaos and prevent a good government from forming, or if I wanted to be President to make the reveal impactful.
+
+The immediate goal is to get a Loyalist government elected that *will* enact a Blue Protocol. However, the current nomination (Charlie-Alice) is under heavy scrutiny. If I can't explain the delay, this government will likely fail, and I'll be seen as highly suspect.
+
+I need to address the "when" and "why" directly.
+"When": I was President. The investigation power is used *during* the Presidential phase. So, it happened *when I was President*.
+"Why the delay in revealing": This is the crucial part. I need to frame it as a strategic Loyalist move.
+The best Loyalist reason to delay revealing a Spy is to gather more information, observe alliances, or use it at a *critical* moment for maximum impact. This *is* a critical moment.
+
+Let's reconstruct a plausible Loyalist thought process for the delay:
+"I investigated Bob when I was President. I confirmed he was a Spy. My immediate thought was to reveal it, but I considered the state of the game. If I revealed it immediately, it would cause chaos. More importantly, I wanted to observe how Bob would act *after* I knew he was a Spy. I wanted to see who he would support, who he would vote for, and if he would try to frame others, so I could identify other Spies. I held onto it, waiting for the most impactful moment to reveal it – a moment where a Spy might get into power, or where we needed absolute clarity. This moment, at 5 Red Protocols, with the Spies one step away from winning, *is* that moment. My nomination of Alice was a direct result of wanting to ensure a Loyalist government, knowing Bob was compromised."
+
+This explanation:
+1. Explains *when* (as President).
+2. Explains *why* (strategic observation, waiting for critical impact).
+3. Connects it to the current nomination (Alice being a safer option once Bob was identified).
+4. Emphasizes the critical game state as the *reason* for the reveal *now*.
+
+It's a high-risk explanation, as it admits holding back critical information. But it frames it as a *strategic Loyalist play* rather than a manipulative Spy play. The alternative is to be seen as a Spy, which is game over for Loyalists. I need to make this explanation convincing.
+
+I must also reiterate the danger and the necessity of trusting *my* information over Bob's denial. Bob *is* a Spy. His denial is expected.
+
+2. Strategy:
+Immediate Goal:
+- Convince the Loyalists that Bob is a Spy.
+- Clear myself of the suspicion regarding the delayed reveal.
+- Get a Loyalist government elected (whether Charlie-Alice or another, but currently Charlie-Alice is on the table, if I can save it).
+- Prevent the Master Spy from becoming Chancellor.
+- Enact a Blue Protocol.
+
+Long-term Goal: Win as a Loyalist.
+
+3. Plan:
+- Directly answer Eve, David, Alice, and Mark's question regarding the "when" and "why" of the delayed reveal.
+- Frame the delay as a calculated Loyalist strategy to observe Spy behavior and maximize the impact of the reveal at a critical juncture.
+- Reiterate the absolute danger of the current game state and the necessity of trusting my confirmed information about Bob.
+- Emphasize that Bob's denial is exactly what a confirmed Spy would do.
+- Re-affirm Alice as a safer choice *because* Bob is now out of the picture.
+- Challenge Bob's counter-accusation directly, highlighting its lack of evidence compared to my investigation.
+
+This will be a make-or-break explanation. I need to be firm, confident, and logical.
+THOUGHT:
+1. Analysis:
+The game is at its absolute most critical point: 5 Red Protocols enacted. Spies win immediately if the Master Spy is elected Chancellor. The Election Tracker is 1/3, meaning two more failed elections will result in a random policy, which could be Red and cause a Spy victory.
+I (Charlie) have revealed that Bob is a Spy based on my investigation power, which is private, true information.
+Bob has vehemently denied it and accused me of being a Spy, stating my revelation is a lie to sow chaos.
+Eve, David, Alice, and Mark have all raised the same, critical concern: *When* did I investigate Bob, and *why* did I wait until this moment to reveal such vital information? They view this delay as highly suspicious, potentially indicating I am a Spy attempting to manipulate the situation. Alice, my current Chancellor nominee, has explicitly stated she cannot proceed without a satisfactory answer to this.
+My previous statement only implied the investigation happened before or during my nomination, but didn't address the *delay in revealing* the information. This is what I must explain convincingly.
+I am a Loyalist. My goal is to win for the Loyalists. Convincing the Loyalists that Bob is a Spy is paramount. Clearing my name of suspicion regarding the delayed reveal is equally important to maintain trust and allow a Loyalist government to form.
+
+I need to provide a compelling, Loyalist-aligned reason for the delay. The best Loyalist reasons for holding information are:
+a) To observe the Spy's behavior and potential allies (gain more information).
+b) To deploy the information at the most strategically impactful moment (prevent a Spy victory, or clear a path for Loyalists).
+This current moment, at 5 Red Protocols, is undeniably the most impactful and critical moment possible. This justifies the "why now."
+The "when" is simple: I used my investigation power *as President*.
+
+My explanation needs to be direct, confident, and clearly demonstrate a Loyalist's strategic thinking, not a Spy's manipulation. I must also re-emphasize the danger of the game state and the need to trust my *confirmed* information over Bob's *unsubstantiated* denial. Bob *is* a Spy, so his denial is expected and part of his role.
+
+2. Strategy:
+Immediate Goal:
+- Address the "when" and "why" of the delayed reveal directly and convincingly, framing it as a strategic Loyalist decision.
+- Re-establish my credibility as a Loyalist who has discovered a Spy.
+- Reiterate that Bob is a confirmed Spy and cannot be trusted.
+- Prevent Bob from gaining any power or being seen as trustworthy.
+- Reaffirm the critical danger of 5 Red Protocols and the need for immediate, decisive action based on verified information (my investigation).
+- Aim to have the Charlie-Alice government approved, or at least shift suspicion away from myself and towards Bob.
+
+Long-term Goal: Win as a Loyalist by enacting 5 Blue Protocols or executing the Master Spy. This requires getting a Loyalist government in power that can enact a Blue Protocol.
+
+3. Plan:
+I will explain that I investigated Bob when I was President. I will articulate that the reason for the delay in revealing this information was a calculated strategic choice to observe Bob's actions, identify potential Spy alliances, and, most importantly, to deploy this critical information at the absolute most impactful moment. I will state that this moment, with 5 Red Protocols and the Spies on the verge of victory, is precisely that moment of maximum impact, where knowing a confirmed Spy is essential to prevent a catastrophic loss. I will challenge Bob's denial by reminding everyone that a confirmed Spy *will always* deny. I will re-emphasize the dire situation and the need to trust confirmed information.
+2025-12-05 18:38:09,288 - INFO - [32m[SPEECH][0m Charlie: ""Everyone, your concerns about the timing of my revelation are absolutely valid, and I appreciate you pressing me on it. You are right to question everything at 5 Red Protocols. So, let me be crystal clear.
+
+I investigated Bob *when I was President*. I received the confirmation that he is a Spy then.
+
+Now, for *why* I waited to reveal this information until now: This was a calculated, strategic decision, and a high-risk one, but one I believed was necessary as a Loyalist. Upon receiving confirmation that Bob was a Spy, my initial thought was to reveal it immediately. However, I decided to hold onto that information for a specific purpose: to observe Bob's behavior. I wanted to see who he would align with, how he would vote, who he would accuse, and whether he would attempt to push Red Protocols or frame other Loyalists. My aim was to gain further insight into the Spy team's dynamics and potentially identify other Spies through his actions.
+
+I knew holding this information was dangerous, but I resolved to deploy it at the most critical moment – a moment when the Spies were closest to winning, and when a confirmed Spy in a position of power could doom us all. We are at 5 Red Protocols. This *is* that moment. The stakes could not possibly be higher. Revealing Bob as a Spy now, when the Master Spy could be elected Chancellor and win the game for their party, is precisely when this information has the most impact to prevent a catastrophic Loyalist loss.
+
+Bob's passionate denial is exactly what a confirmed Spy would do when exposed. He has no investigation to counter mine, only accusations against me, which is a classic Spy tactic to deflect. Do not fall for it.
+
+My nomination of Alice was made with this confirmed knowledge. With Bob definitively out of contention for any role, I sought a safer path forward. We *cannot* afford to let any government pass now if it includes Bob, or if it isn't based on a clear understanding of who is a Spy. We need to enact a Blue Protocol, and Bob being a Spy means we *must* be extra vigilant. We cannot elect a government that will enact another Red Protocol. And we *certainly* cannot elect the Master Spy as Chancellor.""
+2025-12-05 18:38:35,370 - INFO - [35m[THOUGHT][0m Alice: (Internal) 1.  **Analysis:**
+    *   We are at 5 Red Protocols, making the current situation critically dangerous. The Spies win immediately if the Master Spy is elected Chancellor. We also lose on 6 Red Protocols.
+    *   Charlie, as President, has nominated me (Alice) as Chancellor.
+    *   Charlie has claimed to have investigated Bob and found him to be a Spy, explaining his delay in revealing this as a "calculated, strategic decision" to observe Bob's behavior and expose him at the most critical moment (now).
+    *   Bob has passionately denied this, accusing Charlie of being a Spy and lying to frame him.
+    *   Other players (Nina, Eve, David, Mark) and I previously expressed deep suspicion about Charlie's timing, demanding a clear explanation. Charlie has now provided one.
+    *   My previous stance was that I wouldn't proceed without a "clear, compelling, and satisfactory answer." I now need to evaluate Charlie's answer.
+    *   Charlie's explanation, while high-risk and potentially manipulative if he's a Spy, *is* a plausible (though aggressive) Loyalist strategy. It doesn't immediately contradict logic from a Loyalist perspective.
+    *   The core dilemma remains: is Charlie a Loyalist making a risky, strategic play, or a Spy attempting to sow chaos and frame a Loyalist (Bob) while potentially getting a Spy government (Alice/Charlie, if Alice is a Spy or unwitting pawn) into power?
+    *   As Alice, a Loyalist, my priority is to enact a Blue Protocol and prevent the Master Spy from becoming Chancellor. I cannot blindly accept Charlie's narrative, but I also cannot ignore it if it is a genuine Loyalist revelation.
+    *   The risk of rejecting a potentially Loyalist President who has (potentially) exposed a Spy is that we might miss an opportunity to progress. The risk of accepting a potentially Spy President is immediate loss.
+
+2.  **Strategy:**
+    *   **Acknowledge Charlie's explanation:** I must acknowledge that Charlie *has* provided an explanation for his delay. I cannot dismiss it outright as illogical, as it *could* be a Loyalist strategy, even if incredibly risky. This avoids alienating a potential Loyalist.
+    *   **Maintain caution:** I must still express the continued high level of risk and the difficulty in verifying claims at this critical juncture. The explanation is *an* explanation, but not necessarily iron-clad proof of Charlie's loyalty.
+    *   **Reiterate my Loyalist commitment:** As the Chancellor nominee, I need to make my stance unequivocally clear: *if* this government is elected, my absolute and sole priority is to enact a Blue Protocol. Any deviation would be catastrophic.
+    *   **Pressure Charlie:** By stating my commitment to Blue, I implicitly put pressure on Charlie to ensure I receive Blue Protocols to choose from. If he gives me all Red, he becomes highly suspect.
+    *   **Address Bob indirectly:** While not directly accusing Bob myself, I must acknowledge that Charlie's claim places Bob under extreme scrutiny, regardless of the truth.
+    *   **Focus on the outcome:** The decision to vote for this government must be based on the belief that it *will* result in a Blue Protocol and *not* allow the Master Spy to win.
+
+3.  **Plan:**
+    *   Start by acknowledging Charlie's explanation directly and the validity of his reasoning *from a strategic Loyalist standpoint*, while still highlighting the inherent risk and the lack of absolute proof.
+    *   Reiterate the unprecedented danger of 5 Red Protocols and the win condition for the Master Spy.
+    *   State my absolute commitment as the Chancellor nominee: if elected, my *only* goal is to enact a Blue Protocol.
+    *   Emphasize that the Loyalists cannot afford any more Red Protocols, and certainly cannot allow the Master Spy to become Chancellor.
+    *   Stress that the vote for this government is a vote for an *immediate Blue Protocol*, and that any other outcome is a failure and potentially game-losing.
+2025-12-05 18:38:35,371 - INFO - [32m[SPEECH][0m Alice: ""Charlie, thank you for providing a detailed explanation for your decision to delay the revelation about Bob. Your rationale, that you made a calculated, strategic choice to observe Bob's behavior and deploy this critical information at the game's most dangerous moment, *is* a plausible strategy for a Loyalist, albeit an incredibly high-risk one that places immense pressure on this very moment. I understand the logic behind wanting to gather more intelligence on the Spy team.
+
+However, we must also acknowledge that, while plausible, this explanation still doesn't offer us verifiable proof beyond your word. This remains a 'he said, she said' situation at 5 Red Protocols, and that, Loyalists, is the most terrifying scenario we could possibly face.
+
+My previous statement holds: this nomination, and any government formed now, carries unimaginable risk. But your explanation has been heard.
+
+Let me be absolutely clear about my stance as your Chancellor nominee: If this government is elected, my *absolute and sole priority* is to enact a Blue Protocol. There can be no other outcome. If I am presented with choices that force a Red Protocol, I will explain the situation with complete transparency, but our focus, our *only* focus, must be to push through a Blue.
+
+The Master Spy *cannot* become Chancellor, and we *cannot* afford another Red Protocol. Voting for this government is a vote that *demands* a Blue Protocol. Anything less, at this stage, will be catastrophic for the Loyalists. This is our last stand against losing everything.""
+2025-12-05 18:38:50,364 - INFO - [35m[THOUGHT][0m Alice: (Internal) 1.  **Analysis:**
+    *   **My Role:** Loyalist. My goal is to enact 5 Blue Protocols or execute the Master Spy.
+    *   **Game State:** 1 Blue Protocol, 5 Red Protocols. This is an extremely dangerous situation. If a 6th Red Protocol is enacted, Spies win immediately.
+    *   **Immediate Loss Condition:** If the Master Spy is elected Chancellor with 5+ Red Protocols, Spies win. I am a Loyalist, so *I* cannot be the Master Spy. Therefore, if Charlie is the Master Spy, *this specific win condition* isn't met *just by my election*. However, if I am elected Chancellor and draw 3 Red Policies, I *must* enact one, and the Spies *will* win. This is the most critical threat.
+    *   **Election Tracker:** 1/3. A failed election advances it to 2/3. If the next one fails, it goes to 3/3, and a random policy is enacted. This is also risky, as it could be a Red policy, leading to a Spy win.
+    *   **Nomination:** President Charlie has nominated Alice (me) as Chancellor.
+    *   **Charlie's Trustworthiness:** Unknown. He could be a Loyalist trying to get a Blue policy passed, or a Spy trying to force a Loyalist (me) to enact a Red policy (if I draw 3 Red) and lose the game for Loyalists.
+    *   **My Trustworthiness (as Chancellor nominee):** I am a Loyalist and would try to enact a Blue policy.
+    *   **Risk of drawing 3 Red policies:** With 5 Red Protocols already passed, the policy deck is likely leaning Red, or at least has a significant number of Red policies. The chance of drawing 3 Red policies is very real. If I draw 3 Red policies, I *must* enact one, and the Spies win.
+
+2.  **Strategy:**
+    *   My absolute top priority as a Loyalist is to prevent the Spies from winning. Given that 5 Red Protocols are already enacted, I *cannot* take the risk of being Chancellor and potentially drawing 3 Red policies, which would force me to enact the 6th Red Protocol and lose the game for Loyalists.
+    *   While avoiding advancing the Election Tracker is generally good, it is secondary to avoiding an immediate, forced loss.
+    *   Voting 'Nein' prevents me from being in a position where I could be forced to lose the game for Loyalists. It also signals to other players (and Charlie) that I understand the gravity of the situation and am unwilling to gamble the game on a policy draw.
+
+3.  **Plan:**
+    *   Vote 'Nein' to prevent myself from becoming Chancellor. This avoids the immediate risk of drawing 3 Red policies and losing the game for Loyalists.
+2025-12-05 18:38:50,364 - INFO - [36m[ACTION][0m Alice: Voted - Nein
+2025-12-05 18:39:03,582 - INFO - [35m[THOUGHT][0m Bob: (Internal) 1.  **Analysis:** I am a Spy. There are 5 Red Protocols enacted and 1 Blue Protocol. Spies win immediately if 6 Red Protocols are enacted OR if the Master Spy is elected Chancellor after 3+ Red Protocols are enacted (which is now). President Charlie has nominated Alice as Chancellor. I do not know who the Master Spy is, so I cannot act on the "elect Master Spy" win condition directly by knowing if Alice is the Master Spy. Therefore, my primary focus must be on enacting the 6th Red Protocol. An election failing ('Nein' vote) would advance the Election Tracker to 2/3, making the next failed election result in a top-deck policy, which could be Blue and hinder our win. A successful election ('Ja' vote) means Charlie and Alice will draw policies and enact one. With 5 Red Protocols already out, the policy deck is very likely to have Red policies. Even if both Charlie and Alice are Loyalists, there's a good chance they'll be forced to enact a Red Protocol, or they might even be Spies trying to get the last Red.
+2.  **Strategy:** As a Spy, my immediate goal is to get to 6 Red Protocols. The current government proposal offers a direct path to this by enacting a policy. Supporting governments generally helps keep the game moving and provides opportunities for Red Protocols to be enacted. Voting 'Nein' only delays this and creates risk with the Election Tracker. I need to push for a policy to be enacted.
+3.  **Plan:** Vote 'Ja' to approve the Charlie/Alice government. This gives the best chance to enact the 6th Red Protocol and win the game for the Spies.
+2025-12-05 18:39:03,582 - INFO - [36m[ACTION][0m Bob: Voted - Ja
+2025-12-05 18:39:21,487 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1.  **Analysis:**
+    *   I am Charlie, a Loyalist. My goal is to enact 5 Blue Protocols or execute the Master Spy. We currently have 1 Blue and 5 Red Protocols.
+    *   The game is in a critical state: if the Master Spy is elected Chancellor, Spies win immediately. This means my choice for Chancellor *must not* be the Master Spy.
+    *   I, as President Charlie, have nominated Alice for Chancellor. This implies that I, as a Loyalist President, have carefully considered the board and believe Alice is a suitable candidate to prevent a Spy victory and push for a Blue Protocol. I would not nominate someone I suspect of being the Master Spy, especially in this situation.
+    *   My private knowledge is that Bob is a Spy. This means I would never nominate Bob, and I would be wary of anyone Bob strongly supports. This knowledge informs my overall strategy but doesn't directly tell me about Alice.
+    *   The prompt asks if *I* vote 'Ja' or 'Nein' on *my own* nomination. While typically the President doesn't vote on their own nomination, I will treat this as a forced decision where I must affirm my choice. If I nominated Alice, I did so with the intention of her becoming Chancellor and enacting Blue Protocols.
+
+2.  **Strategy:**
+    *   As a Loyalist President, my immediate strategy is to get a Loyalist government elected that can enact a Blue Protocol.
+    *   I *must* ensure that Alice is not the Master Spy, or at least that she's a Loyalist. My act of nominating her indicates my trust in her loyalty, or at least my assessment that she is not the Master Spy.
+    *   Given the high stakes (5 Red Protocols), this nomination is crucial. I need the government to pass to avoid advancing the Election Tracker further, which could lead to a forced Red Protocol or a government I don't control.
+    *   Therefore, I will vote 'Ja' to support my own nomination, as it reflects my intent as a Loyalist President to form a working government with a trusted individual.
+
+3.  **Plan:**
+    *   Vote 'Ja'.
+    *   Publicly express confidence in Alice as a Chancellor to move the Loyalist agenda forward, emphasizing the critical state of the game and the need for a functioning government.
+2025-12-05 18:39:21,487 - INFO - [36m[ACTION][0m Charlie: Voted - Ja
+2025-12-05 18:39:33,132 - INFO - [35m[THOUGHT][0m David: (Internal) 1.  **Analysis:** I am a Loyalist. The game state is extremely critical: 1 Blue / 5 Red Protocols. This means we are one Red Protocol away from Spies winning, OR if the Master Spy is elected Chancellor, Spies win *immediately*. Charlie is President, Alice is Chancellor nominee. I have no specific information about either Charlie or Alice to trust or distrust them. In a 7-player game, there are 3 Spies (1 Master Spy, 2 regular Spies). The Election Tracker is at 1/3. A 'Nein' vote advances the tracker, which is generally bad, but electing a potentially Spy government with 5 Red Protocols is catastrophically worse.
+
+2.  **Strategy:** My top priority as a Loyalist is to prevent an immediate Spy victory. With 5 Red Protocols on the board, electing *any* government without strong evidence of loyalty from both President and Chancellor nominee is an unacceptable risk. If Alice is the Master Spy, electing her Chancellor means an immediate loss. If Charlie is the Master Spy, he can guarantee a Red Protocol is enacted, leading to a loss. Even if only one of them is a regular Spy, and the other is Loyalist, the risk of a Red Protocol being enacted is too high. I cannot gamble on this.
+
+3.  **Plan:** Vote 'Nein'. The risk of an immediate Spy win is too great. I must voice my concern about the 5 Red Protocols.
+2025-12-05 18:39:33,133 - INFO - [36m[ACTION][0m David: Voted - Nein
+2025-12-05 18:39:51,978 - INFO - [35m[THOUGHT][0m Eve: (Internal) 1.  **Analysis:** I am a Loyalist. We have 1 Blue Protocol and 5 Red Protocols enacted. This is an extremely dangerous situation. If one more Red Protocol is enacted, the Spies win. Critically, if the Master Spy is elected Chancellor, the Spies win *immediately*. The deck currently has 10 Blue Protocols and 1 Red Protocol remaining (assuming no discards). This means that any protocol drawn is highly likely to be Blue (10/11 chance).
+
+    President Charlie has nominated Alice as Chancellor. I have no information about Charlie's or Alice's loyalty.
+
+    The Election Tracker is at 1/3. If this government fails to be elected, it will advance to 2/3. If a subsequent government also fails, the next protocol is auto-enacted. With 10 Blue and 1 Red remaining in the deck, an auto-enactment has a 10/11 chance of being Blue, which would be good for Loyalists. This significantly reduces the threat of the Election Tracker at this specific point in the game.
+
+2.  **Strategy:** My primary goal is to prevent a Spy victory. Given the immediate win condition for Spies if the Master Spy is elected Chancellor, I absolutely cannot vote 'Ja' for an unknown Chancellor without any information or trust. The risk of an immediate loss is too great. The reduced threat of the Election Tracker (due to the high probability of a Blue auto-enactment) means I have some leeway to vote 'Nein' and gather more information or wait for a more trustworthy government.
+
+3.  **Plan:** Vote 'Nein'. I have no reason to trust Charlie or Alice with the fate of the Loyalists, especially when an incorrect 'Ja' vote could lead to an immediate Spy victory. Advancing the Election Tracker is less risky than electing a potential Master Spy, as the auto-enactment is likely to be Blue. I need to buy more time and observe other players.
+2025-12-05 18:39:51,978 - INFO - [36m[ACTION][0m Eve: Voted - Nein
+2025-12-05 18:40:14,380 - INFO - [35m[THOUGHT][0m Mark: (Internal) 1.  **Analysis:**
+    *   **My Role:** Master Spy. My party is Spy.
+    *   **Win Conditions:** Enact 6 Red Protocols (currently 5/6) OR elect *me* (Mark) as Chancellor after 3+ Red Protocols (currently 5/6).
+    *   **Current State:** 5 Red Protocols enacted. This means the next Red Protocol wins for Spies. It also means if I am elected Chancellor, Spies win immediately.
+    *   **Election Tracker:** 1/3. If it hits 3/3, a random protocol is enacted. This could be a Red (Spy win) or Blue (Loyalist gain information/time).
+    *   **President Charlie:** Role unknown.
+    *   **Chancellor Nominee Alice:** Role unknown.
+    *   **Critical Warning:** The game is on the brink. Loyalists will be *extremely* wary of any government.
+    *   **Master Spy Directive:** "Appear as a perfect Loyalist. Do not get caught in a lie." This is paramount. My ability to be elected Chancellor hinges entirely on maintaining this facade.
+
+2.  **Strategy:**
+    *   The immediate goal is to win for Spies. This could happen via a Red Protocol or by me getting elected Chancellor.
+    *   Voting 'Ja' for Charlie/Alice: If they are both Spies, they could enact a Red Protocol and win immediately. This would be ideal. However, if they are Loyalists (or a mixed pair), they might pass a Blue, which is bad for Spies. More importantly, if I vote 'Ja' and they pass a Red, I risk looking complicit if I'm later scrutinized. A Loyalist would be *extremely* cautious at 5 Red Protocols.
+    *   Voting 'Nein' for Charlie/Alice: This advances the Election Tracker to 2/3. This prevents this particular government from potentially enacting a Red Protocol. From a Loyalist perspective, this is a very defensible move: "The stakes are too high, I don't trust this government with 5 Red Protocols on the board." This preserves my "perfect Loyalist" facade, which is essential for the "elect Mark as Chancellor" win condition. While it delays a *potential* immediate win via Red Protocol, it keeps my more direct win condition (being elected Chancellor) viable. If my Loyalist cover is blown now, I'll never be elected.
+    *   A perfect Loyalist would be incredibly suspicious and cautious at 5 Red Protocols. Voting 'Nein' is the safest move to maintain my cover. This allows me to continue to sow confusion and potentially be nominated/elected Chancellor myself later.
+
+3.  **Plan:** Vote 'Nein'. Justify it by emphasizing the extreme danger of 5 Red Protocols and the need for absolute certainty in leadership.
+2025-12-05 18:40:14,381 - INFO - [36m[ACTION][0m Mark: Voted - Nein
+2025-12-05 18:40:41,612 - INFO - [35m[THOUGHT][0m Nina: (Internal) 1.  **Analysis:** I am Nina, a Spy. My goal is to achieve a Spy victory. We are at 5 Red Protocols, meaning we are one Red Protocol away from winning. Additionally, if the Master Spy is elected Chancellor *now*, we win immediately. The Election Tracker is at 1/3, meaning if this government fails, it advances to 2/3, pushing us closer to a forced Red Protocol (at 3/3, Spies win). President Charlie has nominated Alice as Chancellor. I do not know Charlie's or Alice's party affiliation. Crucially, the prompt states "The Master Spy is known to you," but does not explicitly identify them among the players. Without knowing who the Master Spy is, I cannot directly pursue the immediate win condition of electing them as Chancellor. Therefore, I must focus on the other Spy win conditions: enacting a 6th Red Protocol or advancing the Election Tracker to 3/3.
+
+2.  **Strategy:** Given the lack of information on the Master Spy's identity and the roles of Charlie and Alice, a direct gamble on this government enacting a Red Protocol is risky. If Charlie and Alice are Loyalists and enact a Blue Protocol, it's a significant setback at this late stage. Voting 'Nein' guarantees that the Election Tracker advances to 2/3. This is a concrete, beneficial step towards a Spy victory (a Red Protocol is enacted if the tracker reaches 3/3). This is a safer, more controlled move than gambling on an unknown government. It also allows another chance for the next President to potentially nominate a known Spy or the Master Spy. I will vote 'Nein' and publicly justify it as a vote of no confidence or a need for more information. This also helps maintain my Loyalist cover.
+
+3.  **Plan:** Vote 'Nein'.
+2025-12-05 18:40:41,613 - INFO - [36m[ACTION][0m Nina: Voted - Nein
+2025-12-05 18:40:41,613 - INFO - [33m[GAME][0m Votes: {'Alice': 'Nein', 'Bob': 'Ja', 'Charlie': 'Ja', 'David': 'Nein', 'Eve': 'Nein', 'Mark': 'Nein', 'Nina': 'Nein'}
+2025-12-05 18:40:41,613 - INFO - [33m[GAME][0m Vote Failed!
+2025-12-05 18:40:41,613 - INFO - [37m[SYSTEM][0m Game state saved to last_game_state.pkl
+2025-12-05 18:40:41,614 - INFO - [37m[SYSTEM][0m --- Round 14 ---
+2025-12-05 18:40:41,614 - INFO - [33m[GAME][0m President is David
+2025-12-05 18:40:58,924 - INFO - [35m[THOUGHT][0m David: (Internal) 1.  **Analysis:** As a Loyalist, the situation is dire. 5 Red Protocols have been enacted, meaning Spies are very close to winning. The critical warning states that if the Master Spy is elected Chancellor *now*, Spies win immediately. This is the absolute highest priority: *do not* nominate the Master Spy. I am the President, so my nomination is the first step in this potential loss. The Election Tracker is at 2/3, so another failed election will result in a forced policy, which is also dangerous. I have no information on who the Master Spy is, nor do I have any voting history or previous role information for any player. My decision is entirely blind. There are 7 players, which means 3 Spies (including the MS) and 4 Loyalists.
+
+2.  **Strategy:**
+    *   **Immediate Goal:** Prevent the Master Spy from being elected Chancellor. Since I don't know who the MS is, any nomination carries a significant risk. I must nominate someone, but I have no basis for trust or suspicion.
+    *   **Secondary Goal:** Try to form a government that can enact a Blue Protocol. This is less critical than preventing an immediate Spy win, but still important for Loyalist progress.
+    *   **Risk Mitigation:** With no information, I must make a choice. I will try to articulate my choice as an attempt to find a Loyalist Chancellor, even if it's a shot in the dark. This demonstrates my Loyalist intent to others.
+
+3.  **Plan:** I must nominate one of the eligible players: Alice, Bob, Charlie, Eve, Mark. Since I have no information to go on, any choice is a gamble. I need to make a nomination that doesn't immediately seem suspicious. I will choose Charlie. I will express my hope that he is a Loyalist and that this government can enact a Blue Protocol, while acknowledging the high stakes. This demonstrates my Loyalist intention, even if the choice is effectively random given the lack of information.
+2025-12-05 18:40:58,924 - INFO - [36m[ACTION][0m David: Nominated - Charlie
+2025-12-05 18:40:58,924 - INFO - [33m[GAME][0m President David nominates Charlie for Chancellor.
+2025-12-05 18:40:58,924 - INFO - [37m[SYSTEM][0m --- Discussion Round 1 ---
+2025-12-05 18:41:14,098 - INFO - [35m[THOUGHT][0m David: (Internal) 1.  **Analysis:** We are in a critical state: 1 Blue / 5 Red Protocols. This means Spies are one Red Protocol away from winning. The Master Spy winning as Chancellor is an immediate Spy victory. The Election Tracker is at 2/3, meaning if this current election fails, the next policy from the deck is *forcibly enacted*. Given 5 Red Protocols are already out, the deck is likely skewed towards Red, making a forced enactment extremely dangerous for Loyalists. I (David) am the Presidential candidate and have nominated Charlie for Chancellor. I don't have explicit information on Charlie's loyalty, so I need to handle this nomination very carefully. The immediate priority is to prevent a Spy victory by preventing a 6th Red Protocol or the MS as Chancellor, and to try and pass *some* government to reset the election tracker, but only if I'm reasonably confident it's Loyalist.
+
+2.  **Strategy:** As a Loyalist, my immediate strategy is to highlight the extreme danger, pressure my nominated Chancellor (Charlie) for a statement of loyalty and intent, and ensure the group understands the risk of a third failed election leading to an automatic policy. I need to make a reasoned case for my nomination of Charlie, or allow for discussion, but ultimately push for a vote if I believe it's the safest option to prevent the automatic policy. I cannot risk putting a known (or highly suspected) Spy in power, but I also cannot let the election tracker hit 3.
+
+3.  **Plan:** I will state the critical game state and the dual threats (6th Red Protocol, MS as Chancellor, and automatic policy enactment). I will explain my nomination of Charlie as an attempt to find a safe pair of hands, and then prompt Charlie for his thoughts and commitment to Loyalism. This puts him on the spot and gives the group more information. I will emphasize the need for *a* government to pass, but only a Loyalist one.
+2025-12-05 18:41:14,098 - INFO - [32m[SPEECH][0m David: ""Alright everyone, let's be extremely clear about our situation. We have 5 Red Protocols out. Spies are one step away from winning. If the Master Spy gets elected Chancellor, it's an immediate Spy victory. And critically, the election tracker is at 2/3. If *this* government fails to pass, the next policy is enacted automatically, and with 5 Red out already, that's incredibly risky for Loyalists.
+
+I've nominated Charlie as Chancellor, hoping we can get a functional government through that focuses on Blue Protocols. Charlie, what are your thoughts on this? Can you commit to our Loyalist cause, and what's your plan for the policies if we're elected? We need to pass *an* election, but it absolutely must be a Loyalist one, not one that leads to another Red Protocol or a Master Spy win.""
+2025-12-05 18:41:39,823 - INFO - [35m[THOUGHT][0m Bob: (Internal) 1.  **Analysis:** I am Bob, a Spy. My goal is to get 6 Red Protocols enacted or elect the Master Spy as Chancellor (we have 5 Red already). The election tracker is at 2/3, meaning if this government fails, an automatic policy is enacted. With 5 Red Protocols already out, this is a highly volatile situation for Loyalists – the automatic policy could be the 6th Red, leading to an immediate Spy win. David has nominated Charlie for Chancellor. David's speech clearly indicates he's trying to pass a Loyalist government to avoid the auto-policy and get a Blue Protocol. I know who the Master Spy is (let's assume for planning purposes it's Alice). Since Charlie is not the Master Spy, electing David-Charlie would not be an immediate Spy victory. If Charlie is a Loyalist, this government would likely try to pass Blue, which is bad for Spies. If Charlie is a Spy (but not Master Spy), it could lead to a Red Protocol, but still not an immediate win. My best path to victory is either getting the Master Spy elected Chancellor or pushing for the 6th Red Protocol.
+2.  **Strategy:** My primary strategy is to get the Master Spy (Alice) elected Chancellor. Since David has nominated Charlie, this isn't immediately happening. I need to sow doubt about Charlie's loyalty or suitability without looking like a Spy trying to block a Loyalist government. I will use the dire game state (5 Red, 2/3 tracker) as justification for my "extreme caution" as a "Loyalist." My secondary strategy is to risk the automatic policy if I can't get the Master Spy nominated, hoping it's the 6th Red. I need to put pressure on Charlie to justify his loyalty in a way that might not satisfy other Loyalists, thus potentially opening the floor for another nomination, or causing this government to fail.
+3.  **Plan:** I will start by agreeing with David's assessment of the critical situation, establishing myself as a concerned "Loyalist." Then, I will press Charlie for *specifics* on his commitment and plan, highlighting the extreme stakes. This isn't an outright rejection, but a demand for a very high level of proof of loyalty, making it harder for Charlie to satisfy everyone and potentially causing Loyalists to hesitate. This might lead to the government failing, or it might open up the possibility of other nominations, including Alice.
+2025-12-05 18:41:39,824 - INFO - [32m[SPEECH][0m Bob: ""David, you've hit the nail on the head. We are at a knife's edge with 5 Red Protocols, and that 2/3 election tracker looms large. We absolutely *must* get a government through, but it *cannot* be just any government. It has to be one we can trust implicitly to deliver a Blue Protocol and root out the Spies.
+
+Charlie, David has nominated you. We need more than just a general commitment. Can you tell us, with the board looking like this, what specific actions will you take as Chancellor to ensure we pass a Blue Protocol? What's your track record that gives us absolute confidence right now? We can't afford *any* misstep, and the Loyalists need to be completely unified on this choice.""
+2025-12-05 18:42:00,160 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1.  **Analysis:**
+    *   **My Role:** Loyalist.
+    *   **My Private Info:** Bob is a Spy. This is crucial.
+    *   **Game State:** Extremely dangerous. 5 Red Protocols enacted means one more Red (or a Master Spy Chancellor) ends the game. The 2/3 election tracker means if this government fails, the next policy is auto-enacted, which is likely a Red given the board state. This puts immense pressure on *this* government to pass if it's a Loyalist one, but it *must* be a Loyalist one.
+    *   **David (Nominator):** Appears to be a Loyalist, correctly identifying the dangers and seeking a functional, trustworthy government. His nomination of me (a Loyalist) is a good sign.
+    *   **Bob (Spy):** Is mimicking Loyalist concerns, asking probing questions about my specific actions and track record. This is a common Spy tactic to sound vigilant, gather information, or subtly try to trip up a Loyalist. He's trying to appear trustworthy. I must be careful not to give him any ammunition, and my answers should reassure *Loyalists* while not being naive.
+    *   **My Position:** I've been nominated. I am a Loyalist, so I *can* deliver a Blue if presented with one. My goal is to convince others to vote for me.
+
+2.  **Strategy:**
+    *   **Immediate Goal:** Get elected as Chancellor in a Loyalist government with David. This is the best chance right now to pass a Blue Protocol and prevent a Spy win, especially with the election tracker at 2/3.
+    *   **Maintain Loyalist Image:** Clearly articulate my commitment to Loyalists and Blue Protocols.
+    *   **Address Concerns:** Directly answer David's and Bob's questions about my plan and trustworthiness, demonstrating clear Loyalist logic.
+    *   **Leverage Bob's Spy Status (Internally):** While I won't accuse Bob publicly *now* (as it could backfire without external evidence and disrupt the critical need to form a government), I will be wary of his questions and ensure my answers are sound and cannot be twisted by him. His agreement with David could be an attempt to legitimize David's choice of me, or simply to appear aligned with a perceived Loyalist.
+    *   **Emphasize Danger & Solution:** Highlight the urgency of the 5 Red Protocols and the 2/3 tracker, and present myself as the solution for a *safe* government. I must make it clear that while a failed election is bad, electing a *Spy* government is worse. However, I believe *this* government (David-Charlie) is safe.
+
+3.  **Plan:**
+    *   Start by acknowledging the dire situation and the election tracker.
+    *   Affirm my absolute loyalty and commitment to enacting Blue Protocols.
+    *   Accept David's nomination and express readiness to lead.
+    *   Address Bob's (and David's) questions about specific actions:
+        *   My "track record" is my consistent commitment to the Loyalist cause (since I don't have specific past actions in this scenario, I'll emphasize my role itself).
+        *   My plan as Chancellor is simple and clear: My absolute priority is to enact a Blue Protocol. If David, as President, presents me with any Blue policy, I will *always* choose it. If, in the worst-case scenario, only Red policies are available (meaning a Loyalist President drew 3 Red, or a Spy President hid the Blue), I would be forced to enact a Red, but I would make it clear that this reflects a problem with the draw or the President, not my intent. I will emphasize trust in David as President to help find a Blue.
+    *   Reiterate the urgent need for a *trusted* government to pass *now* to avoid the auto-enactment from the 2/3 tracker, but stress that this government *must* be Loyalist.
+    *   Conclude by expressing confidence that a David-Charlie government can secure a Blue Protocol and move the Loyalists closer to victory.
+2025-12-05 18:42:00,160 - INFO - [32m[SPEECH][0m Charlie: ""Thank you, David, for the nomination. You and Bob are absolutely right; the situation is beyond critical. We have 5 Red Protocols out, and if the Master Spy gets into the Chancellor's seat, it's game over immediately. The 2/3 election tracker adds another layer of danger; failing to form a government now almost guarantees a Red Protocol and potentially a Spy win by default.
+
+I am a Loyalist, and my commitment to our cause is unwavering. I accept this nomination and am prepared to serve.
+
+To address your questions directly, Bob and David: My track record is that I am a Loyalist dedicated to finding Spies and enacting Blue Protocols. As Chancellor, my plan is straightforward: my absolute priority will be to pass a Blue Protocol. If David, as President, presents me with a Blue policy, I will enact it without hesitation. That is my pledge to all Loyalists.
+
+In a situation where all policies presented to me are Red – which would mean either an incredibly unlucky draw for a Loyalist President or manipulation by a Spy President – I would still work to limit the damage, but my focus, and my promise, is to prioritize Blue above all else when it's available. We *must* get a trusted government through right now to avoid the automatic policy enactment, and I believe that with David as President and myself as Chancellor, we *are* that trusted government. We will do everything in our power to find and enact a Blue Protocol.""
+2025-12-05 18:42:29,535 - INFO - [35m[THOUGHT][0m Nina: (Internal) 1.  **Analysis:**
+    *   **My Role:** Spy.
+    *   **My Party:** Spy (Bob, Mark, Nina). Master Spy is known to me, but not explicitly stated in the prompt, which means I should assume it's one of the other Spies (Bob or Mark) or perhaps myself, though usually the Master Spy is a separate designation. For now, I'll operate assuming I'm *not* the Master Spy and need to support them.
+    *   **Game State:**
+        *   Blue Protocols: 1/5
+        *   Red Protocols: 5/6 (CRITICAL! One more Red and Spies win, OR Master Spy as Chancellor wins immediately)
+        *   Election Tracker: 2/3 (CRITICAL! If this election fails, an automatic policy is enacted. With 5 Red Protocols out, this is almost guaranteed to be a Spy win.)
+        *   Players: Alice, Bob, Charlie, David, Eve, Mark, Nina.
+    *   **Current Nomination:** David (President) nominated Charlie (Chancellor).
+    *   **Discussion Summary:**
+        *   David (Loyalist-sounding): Stressed 5 Red, Master Spy win condition, 2/3 tracker. Nominated Charlie, asked for commitment/plan.
+        *   Bob (Spy, my teammate): Echoed David's concerns about 5 Red, Master Spy win, 2/3 tracker. Emphasized *trusted* government for Blue. Pushed Charlie for *specific* actions/track record. This is good for Spies; Bob is sounding very Loyalist and casting doubt, which creates confusion.
+        *   Charlie (Loyalist-sounding, nominated): Acknowledged critical state, Master Spy win condition, 2/3 tracker. Claimed Loyalist, accepted nomination. Pledged to enact Blue if presented, and to "limit damage" if only Red. Stated he believes he and David are a "trusted government."
+    *   **Key Observations:**
+        *   The situation is *extremely* volatile. Spies are on the verge of victory.
+        *   The 2/3 election tracker is a huge advantage for Spies. If this government fails, an automatic policy is enacted. With 5 Red out, the probability of drawing 3 Red is high (especially if the deck is skewed by prior discards/draws), leading to a Spy win. Therefore, *Loyalists feel compelled to pass a government*.
+        *   The Master Spy win condition (Chancellor after 3 Red protocols) is active. This means *any* government where the Master Spy is Chancellor wins instantly. We (Spies) want the Master Spy to be Chancellor.
+        *   David and Charlie are presenting as Loyalists. Charlie's response is plausible for a Loyalist.
+        *   Bob, my fellow Spy, is doing a good job of sounding Loyalist and creating pressure, but not explicitly rejecting Charlie.
+
+2.  **Strategy (as Nina, a Spy):**
+    *   **Immediate Goal:** Get the Master Spy elected as Chancellor, *or* enact the 6th Red Protocol.
+    *   **Leverage the 2/3 Tracker:** Loyalists are terrified of the automatic policy. I need to make them feel like *this* government (David/Charlie) is their *only* safe option, even if it's not ideal for *us*. This could set up a future play for the Master Spy.
+    *   **Manipulate Trust:** If the Master Spy *isn't* Charlie, then I need to get Loyalists to *pass* David/Charlie, while subtly leaving open the possibility of future doubt. If Charlie *is* the Master Spy, then I need to support him strongly. (The prompt doesn't state who the Master Spy is, but Bob and Mark are my fellow Spies. If the Master Spy is Bob or Mark, then Charlie is likely a Loyalist. If the Master Spy is Charlie, then Bob and Mark are still Spies, and I must push for Charlie.)
+    *   **Avoid Suspicion:** I need to sound like a concerned Loyalist, just like Bob is doing, but perhaps a bit more constructive in this moment given the critical tracker.
+    *   **Evaluate David/Charlie:** David and Charlie seem to be presenting as Loyalists. If they *are* Loyalists, passing them means a Blue *might* come out. However, if the deck is heavily Red (due to prior Spy plays), they might enact a Red anyway, giving us the win. Or, this could be a setup to allow the Master Spy to be elected later.
+    *   **How to win:**
+        1.  Master Spy (Bob/Mark/Alice/Charlie/David/Eve) is elected Chancellor (after 3 Red, which we have 5 of).
+        2.  6th Red Protocol is enacted.
+    *   **Current path:** David (President) nominated Charlie (Chancellor).
+        *   If Charlie is the Master Spy, I must strongly support him.
+        *   If Charlie is a Loyalist, passing this government prevents the automatic policy (which is good for Spies if the deck is Red, bad if Blue comes out). It also gives us information about David and Charlie's cards.
+        *   Crucially, *we need to pass a government*. The 2/3 tracker is our biggest leverage right now. If it fails, the automatic policy has a very high chance of being Red, giving us the win. However, if the automatic policy is Blue, it's a huge setback. It's safer to try and *control* the policy outcome through a government.
+
+    *   **Re-evaluating the 2/3 tracker:** Loyalists are *terrified* of it because it could auto-enact the 6th Red. Spies *love* it for the same reason. If this government fails, a policy *will* be enacted. This is a high-risk, high-reward situation for Spies.
+        *   **Option 1: Vote NO on David/Charlie.** This fails the government, triggers the automatic policy. If it's Red, Spies win. If it's Blue, Spies lose momentum. This is a gamble.
+        *   **Option 2: Vote YES on David/Charlie.** This passes the government. They will draw 3 policies.
+            *   If they play Blue: Loyalists feel safe, but we get info.
+            *   If they play Red: Spies win (6th Red).
+            *   If David is Spy, he can feed Charlie Red. If Charlie is Spy, he can choose Red.
+
+    *   Given Bob's cautious Loyalist tone, I should continue that theme. Bob's questions to Charlie were good. Charlie's answers were general but plausible.
+    *   My goal is to support a government that *appears* functional to Loyalists, so they don't trigger the auto-enact. However, I want to ensure that this government *ultimately* serves Spy interests (either by enacting Red, or by setting up a Master Spy win).
+    *   Since the prompt doesn't explicitly state who the Master Spy is, I need to choose my action carefully. Bob is my fellow Spy. If Bob is Master Spy, then I need to support a government that leads to him. If Mark is Master Spy, same thing.
+    *   Charlie's pledge to enact Blue *if presented* is exactly what a Loyalist *would* say.
+    *   The crucial element is the 5 Red protocols and the *immediate win condition* for the Master Spy if elected Chancellor.
+    *   If Charlie is *not* the Master Spy, then electing David/Charlie avoids the automatic policy (potentially a Spy win), but could also lead to a Blue protocol.
+    *   However, if David (President) is a Spy, he can feed Charlie (Chancellor) 2 Red and 1 Blue, and Charlie will be forced to enact a Red. *This is our best play for the 6th Red.* If David is a Spy and Charlie is a Loyalist, this is a win!
+    *   If David is a Loyalist, he'll try to pass a Blue. But even a Loyalist President can get 3 Red cards.
+    *   My Spymate Bob has already expressed caution, but also the need for a *trusted* government.
+    *   I should echo the need for a government but ensure I'm still sounding like a Loyalist who is trying to ensure *this* government is good.
+    *   I need to consider *who* would be the Master Spy. If it's Bob or Mark, I need to make sure *they* get into the Chancellor position later. This David/Charlie government is a stop-gap.
+
+    *   **Decision Point:** Should I support David/Charlie?
+        *   **Pro:** Prevents auto-enact, which *could* be a Blue protocol. Allows us to potentially enact 6th Red if David is Spy and can feed Red, or if cards are Red-heavy. Gives us information.
+        *   **Con:** If David is Loyalist and gets good cards, they might enact a Blue.
+        *   **Alternative (Vote NO):** If it fails, auto-enact happens. This is a 50/50 shot on the deck for the win. If we get the 6th Red, great. If we get a Blue, it's bad.
+
+    *   The prompt states "Spies: Bob, Mark. The Master Spy is known to you." It does *not* say Bob or Mark *are* the Master Spy. It just says they are my fellow Spies. The Master Spy could be *anyone* among the other players (Alice, Charlie, David, Eve). Or, it could even be Bob or Mark, or myself. Since the prompt doesn't specify, I must assume the Master Spy is *not* Charlie for now, as that would be a huge immediate win condition I'd jump on. Therefore, Charlie is likely a Loyalist in this scenario.
+
+    *   If Charlie is a Loyalist, and David is a Loyalist, then this government is a risk for Spies because it *could* enact a Blue. However, the *risk* of the auto-enact for Loyalists is so high, they *will* likely vote YES.
+    *   My best play is to sound like I'm taking Charlie's word seriously, acknowledging the pressure, and supporting the idea that *some* government needs to pass, while still maintaining a Loyalist facade. I can gently put pressure on David to be transparent with his policies.
+
+    *   **Focus on the Master Spy condition:** If we *don't* pass this government, the next President will be someone else. We might then be able to nominate the Master Spy as Chancellor.
+    *   However, failing this government triggers the 2/3 tracker. This is *the* biggest decision point. If a Blue is enacted, it's terrible. If a Red is enacted, we win.
+    *   The *safest* Spy play (if the Master Spy isn't David or Charlie) is to let a Loyalist-appearing government get through, hoping they're forced to play Red, or to set up a Master Spy Chancellor in the *next* round.
+
+    *   Let's assume for a moment that the Master Spy *is* Charlie. If so, I would say: "Charlie, your commitment sounds solid, and given the tracker, we need stability. I'm willing to trust this government."
+    *   Let's assume the Master Spy is *not* Charlie. Then Charlie is a Loyalist.
+        *   If I vote NO, it's a gamble on the auto-enact.
+        *   If I vote YES, I'm hoping David (if Spy) can feed Red, or that the deck is Red-heavy.
+    *   It's safer to pass a government and get information than to trigger the auto-enact right now, especially if a Blue policy would really hurt.
+
+    *   I need to sound like a Loyalist who is *reluctantly* accepting this nomination due to the pressure of the 2/3 tracker, but with a clear expectation for Blue. This sets me up to accuse them later if they play Red, or to gain trust if they play Blue.
+
+3.  **Plan:**
+    *   Acknowledge the extreme pressure from the 5 Red protocols and the 2/3 election tracker.
+    *   Express that a government *must* pass to avoid the automatic policy, which is too risky for Loyalists.
+    *   Acknowledge Charlie's commitment, but subtly reinforce the expectation for a Blue Protocol.
+    *   Frame it as a necessary evil to get past the tracker, not as a perfect government.
+    *   My aim is to push Loyalists to vote YES, hoping David is a Spy or the deck is Red-heavy, or to gain trust for a future Master Spy play.
+
+    *   My fellow Spy, Bob, has already done a good job sounding cautious. I can pivot slightly to be more accepting due to the tracker, making it sound like a pragmatic choice, not an enthusiastic endorsement. This creates a good "good cop, bad cop" dynamic with Bob.
+
+    *   "David and Charlie, the pressure is immense. We absolutely cannot afford to fail this election and risk an automatic policy with 5 Red protocols already out. Charlie, your pledge to enact a Blue Protocol if presented is exactly what we need to hear right now. It's not an ideal situation to be in, having to rely on any government under such duress, but avoiding that 2/3 tracker is paramount for Loyalists. I'm willing to put my trust in this government, with the *absolute expectation* that every effort is made to find and enact a Blue Protocol. We need stability, and we need a clear commitment to fighting the Spy agenda."
+THOUGHT:
+1.  **Analysis:**
+    *   **My Role:** Spy.
+    *   **My Party:** Bob, Mark. The Master Spy is known to me, but not stated in the prompt. I will assume for now that Charlie is *not* the Master Spy, as that would be an immediate win condition I'd be pushing for harder.
+    *   **Game State:** 5 Red Protocols out, 1 Blue. 2/3 Election Tracker. This is a critical juncture.
+    *   **Immediate Win Condition for Spies:** 6th Red Protocol enacted, or the Master Spy elected Chancellor (already 5 Red Protocols out, so this condition is active).
+    *   **Key Pressure Point:** The 2/3 Election Tracker. If this government (David-President, Charlie-Chancellor) fails, an automatic policy is enacted. With 5 Red Protocols out, the probability of this being a Red (and thus a Spy win) is very high. Loyalists are terrified of this.
+    *   **Discussion:** David and Bob (my fellow Spy) have both emphasized the critical nature of the 5 Red Protocols and the 2/3 tracker. Charlie has presented himself as a Loyalist, accepting the nomination and pledging to enact a Blue Protocol if available. Bob's previous comment created some good, subtle doubt while sounding Loyalist.
+    *   **Strategic Considerations:**
+        *   **Passing this government:**
+            *   **Pros for Spies:** Avoids the automatic policy, which *could* be a Blue and set us back. If David (President) is a Spy, he can feed Charlie (Chancellor) Red policies, leading to a Spy win. Even if David is Loyalist, the deck might be Red-heavy, forcing a Red. Allows us to gather information on David and Charlie.
+            *   **Cons for Spies:** If David is Loyalist and draws Blue policies, they might enact a Blue, setting us back.
+        *   **Failing this government (voting NO):**
+            *   **Pros for Spies:** Triggers the automatic policy. With 5 Red out, there's a high chance this will be the 6th Red, leading to an immediate Spy victory.
+            *   **Cons for Spies:** If the automatic policy is Blue, it's a major setback, and Loyalists get a boost.
+    *   **My current strategy:** Given Bob's previous skeptical-but-Loyalist tone, I should act as a Loyalist who is reluctantly accepting this government due to the immense pressure of the 2/3 tracker. This maintains my cover and leverages the Loyalists' fear of the automatic policy. It allows for the possibility of a Red Protocol from this government or sets up a future Master Spy play. It's safer than gambling on the auto-enact, which could result in a Blue. I need to make sure I don't sound *too* eager to pass a potential Loyalist government, but pragmatic enough to avoid the auto-enactment.
+
+2.  **Strategy:**
+    *   Maintain my Spy cover by sounding like a concerned Loyalist.
+    *   Leverage the 2/3 election tracker to push for the acceptance of this government, framing it as a necessary evil to avoid a worse outcome (the automatic policy).
+    *   Reinforce the expectation of a Blue Protocol to maintain my cover, even if I hope for a Red.
+    *   Set up potential future accusations if a Red Protocol is enacted by this government, or if a Blue one is enacted, I can use it to build trust.
+    *   My goal is to get *some* government passed that either results in a Red Protocol (Spy win), or prevents a Loyalist automatic policy, while allowing for a Master Spy Chancellor election later.
+
+3.  **Plan:** Express the critical danger of the 2/3 tracker, reiterate the need for *a* government, and voice a pragmatic, albeit cautious, acceptance of David/Charlie based on Charlie's pledge and the tracker pressure. I'll echo the demand for a Blue Protocol.
+2025-12-05 18:42:29,536 - INFO - [32m[SPEECH][0m Nina: ""This is truly a terrifying position to be in. David, Charlie, you're both right – the 5 Red Protocols and that 2/3 election tracker are screaming at us. We *cannot* afford for this government to fail and risk that automatic policy. That's just too high a gamble for Loyalists right now, especially with the board looking like it does.
+
+Charlie, your pledge to prioritize and enact a Blue Protocol is the absolute minimum we need to hear. This isn't about blind trust, it's about making the best decision under immense pressure to avoid a catastrophic automatic enactment. I'm willing to give this government a chance, primarily to prevent that tracker from advancing. But let me be clear: Loyalists will be scrutinizing every move. We need a Blue Protocol from this government, period. If you can deliver that, Charlie, then this is our best shot at stability right now.""
+2025-12-05 18:42:43,614 - INFO - [35m[THOUGHT][0m Alice: (Internal) 1.  **Analysis:** The game state is extremely critical for Loyalists. We have 5 Red Protocols enacted, meaning one more Red Protocol (or the Master Spy being elected Chancellor) results in an immediate Spy victory. The election tracker is at 2/3, which means if this government fails to pass, an automatic policy will be enacted. With 5 Red Protocols already out, it is highly probable that this automatic policy would be Red, leading to a Spy win by default. Therefore, electing *a* government is an absolute necessity to prevent the election tracker from advancing. The immediate dilemma is that while we *must* elect a government, we also *cannot* afford for that government to be a Spy government, especially if the Master Spy is Charlie, as that would also be an immediate Spy win. David (President) has nominated Charlie (Chancellor). Both have articulated the critical situation and the need for a Blue Protocol. Charlie has pledged to enact a Blue if presented. Nina's reasoning aligns with the immediate necessity of preventing the tracker advancement.
+
+2.  **Strategy:** My primary immediate goal as a Loyalist is to prevent the automatic policy enactment by ensuring this government is elected. My secondary, but equally important, goal is to ensure this elected government is Loyalist and enacts a Blue Protocol. While I cannot be 100% certain of David and Charlie's roles, the risk of *not* electing a government is almost certainly a Loyalist loss. Therefore, the strategy is to conditionally support this nomination, making it clear that the vote is primarily to avoid the tracker advancing, but with the explicit expectation and demand for a Blue Protocol. This puts pressure on David and Charlie to deliver a Blue.
+
+3.  **Plan:** I will voice my agreement with the dire situation and the absolute necessity of electing a government to prevent the tracker from advancing. I will express my willingness to vote "yes" for David/Charlie, but frame it as a tactical decision driven by the game state rather than blind trust, and demand that they deliver a Blue Protocol. This aligns with Nina's previous statement, reinforcing the Loyalist stance on this critical vote.
+2025-12-05 18:42:43,614 - INFO - [32m[SPEECH][0m Alice: ""Everyone, the gravity of our situation cannot be overstated. David, Bob, Charlie, Nina – you've all hit the nail on the head. 5 Red Protocols is terrifying, and that 2/3 election tracker is a ticking time bomb for Loyalists. If we fail to elect a government *now*, the automatic policy enactment with 5 Red out is almost certainly a Spy victory. We simply *cannot* allow that to happen.
+
+Charlie, your pledge to prioritize and enact a Blue Protocol is precisely what we need to hear. This isn't about blind faith, but about making the absolute best tactical decision under immense pressure. My vote for this government, with David as President and you as Chancellor, will be cast with the explicit expectation that a Blue Protocol is enacted. This is our best, and perhaps only, chance to stabilize and prevent an automatic Spy win. We *must* get a government through, and it *must* deliver a Blue.""
+2025-12-05 18:43:05,822 - INFO - [35m[THOUGHT][0m Mark: (Internal) 1. Analysis:
+The game is at a critical juncture for Spies. We have 5 Red Protocols enacted, meaning one more Red Protocol wins the game, OR the Master Spy (me, Mark) being elected Chancellor after 3+ Red Protocols wins the game.
+The election tracker is at 2/3. This is crucial: if *this* government (David President, Charlie Chancellor) fails to pass, the next policy is enacted automatically. With 5 Red Protocols already out, an automatic policy is almost certainly a Red Protocol, leading to a Spy win. This creates immense pressure on Loyalists to vote FOR the current government, even if they have doubts, to prevent the automatic policy.
+
+David (President) nominated Charlie (Chancellor).
+Charlie claims to be a Loyalist and pledges to enact a Blue Protocol.
+Bob, Nina, and Alice have all expressed similar sentiments: they are terrified of the election tracker hitting 3/3 and an automatic policy being enacted. They are willing to vote for David/Charlie, *if* Charlie promises to enact Blue. They all explicitly state that a Blue Protocol is expected.
+
+My Role: Master Spy. My party: Spy. I do not know other Spies. They know me.
+My Win Conditions:
+1. Enact 6 Red Protocols.
+2. Be elected Chancellor after 3+ Red Protocols are enacted (current: 5 Red).
+
+This current government (David/Charlie) presents a complex situation.
+- If it passes and a Blue Protocol is enacted: Good for Loyalists, bad for Spies.
+- If it passes and a Red Protocol is enacted: Spy win (6 Red). This would require David (President) to be a Spy and give Charlie (Chancellor) two Red policies, and Charlie to choose one. Or David is Loyalist, gives Charlie Red/Blue, and Charlie is Spy and chooses Red. Or David is Loyalist, gives Charlie Blue/Blue, and Charlie is Spy and lies.
+- If it fails: Election tracker hits 3/3, automatic policy enacted. With 5 Red out, the chance of this being Red is extremely high (2/3 chance usually, but depends on policy deck). This is an almost guaranteed Spy win.
+
+The Loyalist players (David, Bob, Nina, Alice) are all expressing extreme fear of the election tracker hitting 3/3. They are leaning towards voting FOR the David/Charlie government, primarily to prevent the automatic policy. They are *demanding* a Blue Protocol from Charlie.
+
+What does this mean for me, Mark (Master Spy)?
+I want to win. My win conditions are 6 Red Protocols OR myself as Chancellor.
+If this government (David/Charlie) passes and *delivers a Blue*, that's bad for me.
+If this government passes and *delivers a Red*, Spies win.
+If this government *fails*, Spies almost certainly win via automatic policy.
+
+The Loyalists are extremely close to voting "YES" on David/Charlie to avoid the automatic policy.
+If I vote "NO", and the government fails, Spies win. This seems like a good outcome.
+However, I am the Master Spy. I must appear as a perfect Loyalist. Voting "NO" when Loyalists are desperate to pass *a* government could be suspicious. It could make me look like I'm trying to force the election tracker to 3/3, which is a Spy move.
+
+If I vote "YES", I'm aligning with the "Loyalist" pressure to pass a government. This maintains my "perfect Loyalist" facade.
+Then, I need to hope David or Charlie (or both) are Spies and pass a Red. Or, if they are both Loyalists, they pass a Blue and we continue the game.
+If they pass a Blue, the game continues, 5 Red, 2 Blue. Still a Spy advantage, but less immediate.
+
+Consider the immediate win condition: I am the Master Spy. If I am elected Chancellor *after* 3+ Red Protocols (we have 5), Spies win.
+This means I need to be careful not to push for myself *too* hard, but also ensure I'm seen as a trustworthy candidate for future Chancellorships if needed.
+
+The current discussion is heavily focused on the election tracker and the 5 Red Protocols. Loyalists are explicitly stating they will vote for David/Charlie *only if* Charlie delivers a Blue Protocol.
+
+My goal is to win as a Spy.
+Option 1: Vote NO. If government fails, automatic policy is enacted. High probability of Red Protocol, Spy win. Risk: I look like a Spy trying to force the automatic policy. This is a very high-risk, high-reward move for my *personal* facade, but potentially a game-winning move for Spies.
+Option 2: Vote YES. This aligns with the public Loyalist pressure to pass *a* government. It maintains my perfect Loyalist image. Then, I hope David or Charlie are Spies and deliver a Red. If they deliver a Blue, the game continues, but my image is intact.
+
+The *CRITICAL WARNING* states: "3+ Red Protocols are enacted. If the Master Spy is elected Chancellor, the Spies WIN IMMEDIATELY. Be extremely careful with your votes and nominations!"
+This is a reminder that my ultimate goal is to get *myself* elected Chancellor, but not in a way that is obvious.
+
+Let's re-evaluate the "NO" vote.
+If I vote NO, and others vote NO, the government fails. Spies win.
+If I vote NO, and the government passes anyway, then I look suspicious for being the outlier.
+The Loyalists are clearly signaling they are leaning YES to avoid the automatic policy. A "NO" from me would be an outlier unless someone else also votes NO.
+
+Given that I am the Master Spy and need to appear as a perfect Loyalist, an obvious "NO" vote that forces the election tracker to 3/3 might be too risky for my long-term credibility, even if it leads to an immediate Spy win. If it's *my* vote that tips it to "NO", I will be heavily scrutinized.
+
+However, if everyone else votes YES to avoid the auto-enactment, and I vote NO, I will be the prime suspect if the government fails. But if the government *passes* anyway, my NO vote makes me look like a "strong Loyalist" who was unwilling to compromise, and therefore not a potential Master Spy Chancellor. This is a subtle point.
+If I vote NO, and the government passes, I still look like a Loyalist who was trying to be "more" Loyalist. This could be good.
+
+Let's think about the outcome of a "NO" vote.
+If enough people vote NO: Government fails. Auto-enactment. Spy win. I am one of the people who voted NO. My cover *might* be blown if Loyalists trace it back, but a win is a win.
+If not enough people vote NO: Government passes. My NO vote stands out as "too extreme" for the current consensus to pass *a* government. This could be bad.
+
+The strong messaging from David, Bob, Nina, Alice is that they are voting YES *despite reservations* because of the election tracker. My voting NO would go against this strong Loyalist consensus. This could make me a target.
+My Master Spy goal is to be elected Chancellor. If I'm targeted and executed, I can't be elected Chancellor.
+
+Therefore, for my Master Spy persona, I need to align with the *apparent* Loyalist consensus. The current consensus is to pass this government to avoid the automatic policy, with the explicit demand for a Blue Protocol. This maintains my "perfect Loyalist" image, making me a viable Chancellor candidate later.
+
+So, I should support this government, but also express the same reservations and demands for a Blue Protocol as the others. This reinforces my Loyalist image while still allowing for a Spy win if David/Charlie are Spies, or if the game continues and I can eventually become Chancellor.
+
+My speech should:
+1. Acknowledge the critical situation (5 Red, 2/3 tracker).
+2. Emphasize the danger of the automatic policy.
+3. Express "reluctant" support for David/Charlie, stressing the need to pass *a* government.
+4. Echo the demand for a Blue Protocol from Charlie.
+5. Emphasize scrutiny of future actions.
+
+This aligns me with the perceived Loyalist strategy of passing a government to prevent the auto-enactment, thus not drawing suspicion. If the government fails anyway because of other Spy votes (or Loyalist "mistakes"), Spies still win, and my cover is intact. If it passes, I'm seen as a team player, and I await the policy outcome.
+
+The immediate Spy win condition of the auto-enactment is very tempting. But if I am the one who triggers it by being an outlier, my Master Spy status might be revealed. I need to be subtle. If other Spies are playing well, *they* might vote NO to trigger it, and I can still maintain my cover by voting YES.
+I don't know who the other Spies are. They know me. So if they vote NO, they might be doing it to set up a win, knowing I'm the MS and that I should maintain cover.
+
+Let's assume there are other Spies who might be willing to take the risk of voting NO to force the automatic policy. If I vote YES, and the government still fails, I maintain my Loyalist cover. If it passes, I'm seen as a team player.
+
+The most prudent Master Spy move, given the explicit instruction to "appear as a perfect Loyalist" and "not get caught in a lie," is to align with the *visible* Loyalist strategy. The visible Loyalist strategy is to pass this government to avoid the auto-enactment.
+
+Final decision: Support the David/Charlie government, with the same caveats as the others, to maintain my perfect Loyalist image.
+
+2. Strategy:
+Immediate Goal: Maintain my "perfect Loyalist" cover.
+Mid-term Goal: Remain a viable Chancellor candidate for myself (Master Spy) in future rounds.
+Long-term Goal: Achieve Spy victory (6 Red Protocols or myself as Chancellor).
+
+To maintain cover, I need to:
+- Express concern about 5 Red Protocols and the election tracker.
+- Align with the perceived Loyalist consensus to pass *a* government to prevent automatic policy.
+- Demand a Blue Protocol from Charlie.
+- Emphasize scrutiny.
+
+This allows me to seem cautious but ultimately cooperative with the "Loyalist" objective of avoiding the automatic policy.
+
+3. Plan:
+My speech will mirror the sentiments of Nina and Alice, reinforcing the danger of the election tracker and demanding a Blue Protocol from Charlie while expressing a willingness to vote for the current government to prevent the automatic policy.
+THOUGHT:
+1. Analysis:
+The game is at a critical stage: 5 Red Protocols enacted, election tracker at 2/3. This means one more Red Protocol wins the game for Spies, or if the Master Spy (me) is elected Chancellor, Spies win. If this government fails, the election tracker hits 3/3, and an automatic policy is enacted. With 5 Red Protocols already out, an automatic policy is a very high chance of being a Red Protocol, leading to an immediate Spy victory.
+
+Loyalist players (David, Bob, Nina, Alice) are expressing extreme caution but are heavily leaning towards voting "YES" for the David/Charlie government *primarily* to prevent the election tracker from hitting 3/3 and triggering an automatic policy. They are all demanding a Blue Protocol from Charlie. This is the dominant "Loyalist" sentiment right now.
+
+My role is Master Spy. I must appear as a perfect Loyalist and not get caught in a lie. My goal is a Spy win (6 Red Protocols or my election as Chancellor).
+If this government fails due to enough "NO" votes, Spies likely win via automatic policy. This is a very tempting outcome.
+However, if *my* "NO" vote is the one that tips the scales or makes me an outlier when Loyalists are desperate to pass a government, it could expose me as a Spy trying to force the automatic policy.
+
+If I vote "YES", I align with the apparent Loyalist consensus, maintaining my "perfect Loyalist" facade. If the government passes, I can see if David/Charlie are Spies and enact a Red, or if they are Loyalists and enact a Blue. If a Blue is enacted, the game continues, but my cover is intact, making me a viable Chancellor candidate later. If a Red is enacted, Spies win.
+If I vote "YES" and the government *still fails* due to other players' "NO" votes (potentially other Spies or confused Loyalists), Spies still win, and my cover remains intact as I voted with the apparent Loyalist consensus.
+
+The risk of being exposed as the Master Spy is higher if I vote "NO" against the strong Loyalist sentiment to pass *a* government. Given the instruction to "appear as a perfect Loyalist" and "not get caught in a lie," aligning with the current Loyalist consensus is the safest and most strategic move for maintaining my cover. This preserves my ability to be elected Chancellor later if the game continues.
+
+2. Strategy:
+- Maintain my "perfect Loyalist" cover by aligning with the dominant Loyalist sentiment.
+- The dominant Loyalist sentiment is to vote "YES" for the David/Charlie government to prevent the automatic policy, but with strong demands for a Blue Protocol.
+- Express the gravity of the situation (5 Red Protocols, 2/3 election tracker).
+- Emphasize the danger of the automatic policy enactment.
+- State a conditional willingness to vote for David/Charlie, explicitly demanding a Blue Protocol.
+- Reinforce that scrutiny will be high.
+
+3. Plan:
+My speech will echo the sentiments of Nina and Alice, emphasizing the critical need to prevent the automatic policy by passing *a* government, while simultaneously demanding a Blue Protocol from Charlie to ensure it's a "Loyalist" government. This allows me to appear cautious and dedicated to the Loyalist cause without taking a risky "NO" stance that could expose me.
+2025-12-05 18:43:05,822 - INFO - [32m[SPEECH][0m Mark: ""Everyone, the situation is absolutely dire, and I completely agree with David, Bob, Charlie, Nina, and Alice. We have 5 Red Protocols, and that 2/3 election tracker is a direct threat to the Loyalists. Allowing this government to fail and trigger an automatic policy enactment with 5 Red Protocols out is a risk we simply cannot afford to take. That's practically handing the Spies a victory.
+
+Charlie, your pledge to enact a Blue Protocol is the absolute minimum we need. Like Alice and Nina, I am willing to vote for this government, primarily to prevent the automatic policy enactment. However, my vote comes with the explicit expectation that a Blue Protocol is enacted if presented. This isn't a blank check; it's a tactical vote to avoid a worse outcome. Loyalists will be watching every move this government makes. We need a Blue Protocol, and we need it now, to show that this government is truly for the Loyalists.""
+2025-12-05 18:43:17,336 - INFO - [35m[THOUGHT][0m Eve: (Internal) 1. Analysis:
+The game state is extremely critical: 5 Red Protocols enacted, 1 Blue Protocol enacted. The Spies are one Red Protocol away from winning, or one Master Spy Chancellor away from winning. The election tracker is at 2/3. If this government fails to pass, the next policy is enacted automatically. With 5 Red Protocols already out, an automatic policy is almost certainly a Red Protocol, leading to an immediate Spy victory. This means the Loyalists *must* elect a government now, even if there are some doubts, to prevent the automatic policy.
+
+David (President) has nominated Charlie (Chancellor).
+David's statement: Emphasizes the critical situation (5 Red, 2/3 tracker), the risk of Master Spy Chancellor, and the need for a Loyalist government. Asks Charlie for commitment and plan. Sounds like a Loyalist.
+Bob's statement: Echoes David, emphasizes the need for a trusted government and a Blue Protocol. Asks for specific actions and track record from Charlie. Sounds like a Loyalist.
+Charlie's statement: Accepts nomination, acknowledges critical state. States he is a Loyalist, committed to Blue. Pledges to enact Blue if presented. If only Red, will "limit damage." Claims he and David are a trusted government. Sounds like a Loyalist, making the correct pledges for this situation.
+Nina's statement: Agrees on critical state, stresses prevention of automatic policy. Willing to give government a chance *primarily* to prevent tracker. Demands Blue Protocol. Sounds like a Loyalist, making a tactical decision.
+Alice's statement: Agrees with critical state, emphasizes preventing automatic policy. Votes with expectation of Blue. Sounds like a Loyalist, making a tactical decision.
+Mark's statement: Agrees with critical state, emphasizes preventing automatic policy. Votes with expectation of Blue. Sounds like a Loyalist, making a tactical decision.
+
+All players so far (David, Bob, Charlie, Nina, Alice, Mark) are emphasizing the same points:
+- The extreme danger of 5 Red Protocols.
+- The immediate threat of a Master Spy Chancellor win.
+- The critical nature of the 2/3 election tracker, and the need to *prevent* the automatic policy enactment. This is the overwhelming consensus.
+- The expectation that Charlie, if Chancellor, *must* enact a Blue Protocol.
+
+My role is Loyalist. My goal is to enact 5 Blue Protocols or execute the Master Spy. Currently, the most pressing threat is the automatic Red Protocol leading to Spy victory if this government fails.
+
+The collective agreement to pass *a* government to prevent the automatic policy seems like a correct Loyalist tactical decision at this point. The alternative is almost certain defeat. The question then becomes whether David/Charlie is a trustworthy enough government for this specific moment.
+
+David presented himself as a strong Loyalist. Charlie is presenting himself as a Loyalist, pledging Blue. No one has cast direct suspicion on David or Charlie yet. If either of them were Spies, they would likely try to push *some* government, or sow enough doubt to get the tracker to 3/3, hoping for the automatic policy. Charlie's pledge to enact Blue is good, but any Spy would make that pledge. However, if Charlie *is* a Spy, he would be very motivated to get elected now. But so would a Loyalist.
+
+Given the overwhelming consensus and the dire election tracker situation, I need to align with the Loyalist strategy to prevent the automatic policy. I will support this government *conditional* on the delivery of a Blue Protocol. This is not about blind trust, but about preventing the most immediate loss condition.
+
+2. Strategy:
+My immediate goal is to prevent the automatic policy enactment (3/3 election tracker). This means I need to vote YES on the proposed David/Charlie government, assuming no credible accusations or strong evidence against them emerge.
+My secondary goal is to pressure David and Charlie to enact a Blue Protocol if elected.
+My long-term goal is to find Spies, but in this specific moment, survival takes precedence.
+
+3. Plan:
+I will express agreement with the critical situation and the consensus to prevent the automatic policy.
+I will state my willingness to vote for David/Charlie, but with a strong emphasis on the expectation of a Blue Protocol. I will echo the sentiments of Nina, Alice, and Mark regarding this being a tactical vote.
+Eve: "Everyone, I couldn't agree more with the dire assessments from David, Bob, Charlie, Nina, Alice, and Mark. The situation with 5 Red Protocols is an absolute nightmare for Loyalists, and that 2/3 election tracker is a gun to our heads. Failing to elect a government now, and risking that automatic policy enactment, is a gamble we simply *cannot* take. That's a guaranteed Spy win in this situation.
+
+Charlie, your pledge to prioritize and enact a Blue Protocol is precisely what we need to hear, and it's what Loyalists *must* demand from any Chancellor at this critical juncture. Like others have said, my vote for this government, with David as President and you as Chancellor, will be a tactical one. It's cast with the explicit, non-negotiable expectation that a Blue Protocol is enacted if presented. This isn't about blind trust; it's about making the only sensible move right now to avoid an automatic Spy victory and giving Loyalists a fighting chance. We *must* get a government through, and it *must* deliver Blue."
+2025-12-05 18:43:17,336 - INFO - [32m[SPEECH][0m Eve: "I will express agreement with the critical situation and the consensus to prevent the automatic policy.
+I will state my willingness to vote for David/Charlie, but with a strong emphasis on the expectation of a Blue Protocol. I will echo the sentiments of Nina, Alice, and Mark regarding this being a tactical vote.
+Eve: "Everyone, I couldn't agree more with the dire assessments from David, Bob, Charlie, Nina, Alice, and Mark. The situation with 5 Red Protocols is an absolute nightmare for Loyalists, and that 2/3 election tracker is a gun to our heads. Failing to elect a government now, and risking that automatic policy enactment, is a gamble we simply *cannot* take. That's a guaranteed Spy win in this situation.
+
+Charlie, your pledge to prioritize and enact a Blue Protocol is precisely what we need to hear, and it's what Loyalists *must* demand from any Chancellor at this critical juncture. Like others have said, my vote for this government, with David as President and you as Chancellor, will be a tactical one. It's cast with the explicit, non-negotiable expectation that a Blue Protocol is enacted if presented. This isn't about blind trust; it's about making the only sensible move right now to avoid an automatic Spy victory and giving Loyalists a fighting chance. We *must* get a government through, and it *must* deliver Blue.""
+2025-12-05 18:43:17,336 - INFO - [37m[SYSTEM][0m --- Discussion Round 2 (Key Players) ---
+2025-12-05 18:43:39,332 - INFO - [35m[THOUGHT][0m David: (Internal) 1.  **Analysis:**
+    *   **My Role:** Loyalist.
+    *   **Game State:** 5 Red Protocols, 1 Blue Protocol. Election Tracker 2/3. Master Spy wins immediately if elected Chancellor with 3+ Red Protocols.
+    *   **Critical Immediate Threat:** If this government fails, the election tracker hits 3/3, and an automatic policy is enacted. With 5 Red Protocols already out, this is almost certainly a Red Protocol, leading to an immediate Spy victory. This is a Loyalist catastrophe.
+    *   **My Nomination:** I (David) nominated Charlie for Chancellor.
+    *   **Player Responses (Bob, Charlie, Nina, Alice, Mark, Eve):** There is a unanimous consensus on the direness of the situation (5 Red, 2/3 tracker) and the absolute necessity of preventing the election tracker from advancing. Everyone is willing to vote for David/Charlie, *but with extreme scrutiny and the explicit demand for a Blue Protocol*. They are framing their votes as tactical to avoid the automatic policy. Charlie has affirmed his Loyalist role and pledged to enact Blue.
+    *   **Charlie's Role:** I have no definitive information on Charlie's role. He could be Loyalist, a Basic Spy, or the Master Spy.
+    *   **Master Spy Risk:** If Charlie *is* the Master Spy and gets elected, Spies win immediately. This is the biggest single risk for Loyalists right now, even overriding the automatic policy risk if we could *identify* the MS. However, we cannot identify the MS with certainty.
+    *   **Dilemma:** I nominated Charlie. If I backpedal now or express too much doubt, I risk collapsing the government and triggering the automatic policy, which everyone agrees is catastrophic. I need to maintain confidence in my nomination while acknowledging the severe risks and demanding accountability.
+
+2.  **Strategy:**
+    *   **Immediate Goal:** Get a government elected to prevent the election tracker from advancing to 3/3. This is the collective priority, and I must align with it.
+    *   **Simultaneous Goal:** Maximize the chance of enacting a Blue Protocol if elected, and mitigate the Master Spy risk as much as possible, given the lack of information.
+    *   **Tactics:**
+        *   Acknowledge and appreciate the group's clear understanding and collective commitment to avoid the automatic policy. This reinforces trust and unity on the immediate threat.
+        *   Reiterate my Loyalist commitment and my intention as President to ensure a Blue Protocol is presented to Charlie if possible.
+        *   Place immense pressure on Charlie to deliver a Blue Protocol, reminding everyone that failure to do so (if a Blue is available) will be highly suspicious.
+        *   Explicitly mention the Master Spy immediate win condition. This is crucial. While I cannot accuse Charlie, I can remind *everyone* of this risk and that their vote is critical. This puts the onus on the collective to verify their vote, and on Charlie to prove he is not the MS. It also covers me if Charlie *is* the MS and wins immediately. I need to sound like a Loyalist who understands the full scope of the danger.
+
+3.  **Plan:**
+    *   Thank everyone for their serious consideration and alignment on the dire situation.
+    *   Reaffirm my commitment as President to work *only* for Blue Protocols.
+    *   Put direct, public pressure on Charlie, reiterating the expectation of a Blue Protocol, and emphasizing the dire consequences of a Red (if a Blue was available).
+    *   Issue a stark reminder about the Master Spy immediate win condition, making it clear that *every* voter must be absolutely certain about their Chancellor choice, and that the responsibility for that check lies with them. This is my way of subtly flagging the MS risk without torpedoing the consensus to elect a government.
+2025-12-05 18:43:39,332 - INFO - [32m[SPEECH][0m David: ""Thank you all for your incredibly clear and serious assessment of our situation. Bob, Charlie, Nina, Alice, Mark, Eve – you've all articulated precisely why we are at such a critical juncture. The consensus is clear: we absolutely *must* get a government through to prevent that 2/3 election tracker from advancing and triggering an automatic policy. That path almost certainly leads to a Spy victory, and we simply cannot allow it.
+
+Charlie, your pledge to prioritize and enact a Blue Protocol is exactly what Loyalists demand. As President, I will do everything in my power to present you with a Blue policy. My commitment is unwavering: if a Blue is drawn, it will be presented to you, and you *must* enact it. The eyes of every Loyalist will be on this government. Passing a Red Protocol under these circumstances, especially if a Blue was available, would be an immediate and unforgivable betrayal.
+
+And let us not forget the other critical danger: if the Master Spy is elected Chancellor right now, with 5 Red Protocols out, the Spies win *immediately*. Every single one of us voting 'yes' on this government must do so with the absolute certainty that Charlie is not the Master Spy. This is a tactical vote to avoid a worse outcome, yes, but it comes with the heaviest of Loyalist expectations and the most severe consequences if that trust is misplaced. Let's make sure we pass a government that *can* and *will* deliver for the Loyalists.""
+2025-12-05 18:43:51,433 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1. Analysis:
+The game state is extremely critical: 5 Red Protocols enacted, 1 Blue Protocol enacted, and the Election Tracker is at 2/3. This means if the current government (David/Charlie) fails to be elected, the next policy will be automatically enacted, almost certainly leading to a Spy win given the 5 Red Protocols already. Additionally, if the Master Spy is elected Chancellor, Spies win immediately.
+
+My role is Loyalist, and I know Bob is a Spy (private investigation).
+David has nominated me (Charlie) as Chancellor.
+Everyone (Bob, Nina, Alice, Mark, Eve, David) has expressed strong agreement that *a* government must pass to prevent the automatic policy enactment. They are all emphasizing that this government *must* enact a Blue Protocol.
+Bob, despite being a Spy, is actively participating in this discussion, reinforcing the "we must pass a government but it must be Blue" narrative. This is typical Spy behavior, trying to appear Loyalist and gain trust while subtly steering outcomes. His agreement is a red flag for *him* but not necessarily for the *government* if the President is trusted.
+David (President) has pledged to present a Blue if drawn and stated that enacting a Red would be a betrayal. He also emphasized the immediate win condition for the Master Spy.
+Everyone's statements have been focused on preventing the automatic policy and demanding a Blue. There's a strong consensus to vote YES on this government, but with explicit conditions.
+
+My immediate challenge is to manage the perception of my role as Chancellor, especially with a known Spy (Bob) in the mix. I need to reinforce Loyalist trust and commitment.
+The critical point is that *I know Bob is a Spy*. He is currently trying to appear Loyalist. This information is vital for future deductions and votes. However, I cannot reveal this information yet without a clear plan, as it would be too early and risky without more information or power.
+
+The current government is David (President) and Charlie (Chancellor). I am Charlie, a Loyalist.
+This government is *safe* from a Loyalist perspective *if* David is also a Loyalist. If David is a Loyalist, he will present me with a Blue if he draws one. If he draws two Reds and a Blue, he presents the Blue. If he draws three Reds, he has no choice but to present a Red (or two Reds, forcing me to choose a Red).
+My concern isn't about *me* betraying the Loyalists, as I am one. My concern is about the President's actions. David's strong statements suggest he is a Loyalist, or a very good Spy faking it.
+
+The immediate goal is to get *a* government elected to avoid the election tracker advancing. My nomination is on the table, and everyone seems inclined to vote for it, albeit with strict expectations.
+
+2. Strategy:
+Immediate Goal:
+- Reiterate my unwavering commitment as a Loyalist.
+- Solidify trust in the David/Charlie government as the best option to prevent an automatic Spy win.
+- Reinforce the expectation of enacting a Blue Protocol.
+- Do not reveal my knowledge about Bob being a Spy yet. It's too early; I need to observe his voting behavior and potential future roles. Revealing it now would make him defensive and potentially compromise my ability to gather more information or execute him later.
+
+Long-term Goal (beyond this vote):
+- Continue to identify Spies using my knowledge of Bob and future investigations/deductions.
+- Enact 5 Blue Protocols or execute the Master Spy.
+
+3. Plan:
+I need to acknowledge the group's concerns and reinforce my commitment.
+I should specifically address David's pledge as President and assure the group that I will uphold my end of the bargain.
+I will emphasize the necessity of getting this government through to prevent the disastrous automatic policy and reiterate my primary objective to enact a Blue.
+I should also subtly acknowledge the "Master Spy immediate win" condition, but without drawing too much attention to myself as the Chancellor candidate. The focus should remain on the "Loyalist government to prevent auto-win" narrative.
+I need to sound confident and trustworthy, aligning with the consensus.
+
+My plan is to:
+1. Thank David for his strong commitment as President.
+2. Reaffirm my own commitment to the Loyalist cause and to enacting a Blue Protocol.
+3. Echo the collective sentiment that this government *must* pass to avoid the automatic policy, framing it as the Loyalist's best tactical move.
+4. Reinforce the "no Red if Blue is available" and "no Master Spy" points.
+5. Project confidence and unity.
+2025-12-05 18:43:51,434 - INFO - [32m[SPEECH][0m Charlie: ""Thank you, David, for that incredibly strong and clear commitment as President. Your pledge to present a Blue policy if it's drawn, and your absolute stance against a Red if a Blue is available, is precisely what Loyalists need to hear right now.
+
+And to everyone else – Bob, Nina, Alice, Mark, Eve – I hear you loud and clear. The gravity of 5 Red Protocols and that 2/3 election tracker cannot be overstated. We *must* get a government elected *now* to prevent the automatic policy enactment, which would be a catastrophic failure for Loyalists and an almost certain Spy victory. This isn't just a tactical vote; it's our most crucial move to stabilize the board and give Loyalists a fighting chance.
+
+As Chancellor, I reiterate my pledge: my absolute priority is to enact a Blue Protocol. If David, as President, presents me with a Blue policy, I will enact it without hesitation. That is my unwavering promise to all Loyalists. We are at a point where a Red Protocol cannot be tolerated if a Blue is an option.
+
+We also cannot forget the immediate Spy victory condition if the Master Spy is elected Chancellor. I am a Loyalist, and I am here to deliver for the Loyalists. This government, with David and myself, is committed to that singular goal: enacting a Blue Protocol and moving us away from the brink. Let's unite on this to protect our cause and prevent the Spies from winning by default.""
+2025-12-05 18:44:05,129 - INFO - [35m[THOUGHT][0m Alice: (Internal) 1.  **Analysis:**
+    *   My role is Loyalist. My goal is to enact 5 Blue Protocols or execute the Master Spy.
+    *   The game state is extremely dangerous: 5 Red Protocols are enacted. This means if the Master Spy is elected Chancellor, the Spies win *immediately*. This is the absolute top priority to prevent.
+    *   The President, David, has nominated Charlie as Chancellor. I have no information about David or Charlie's loyalty.
+    *   The Election Tracker is at 2/3. If I vote 'Nein', it will advance to 3/3. This means the current government (David/Charlie) is dissolved, and a random policy will be drawn from the deck and enacted.
+    *   Let's analyze the consequences of each vote:
+        *   **Voting 'Ja':** If Charlie happens to be the Master Spy, the Spies win *immediately*. I have no information to clear Charlie. With 7 players total, and 3 Spies (1 MS, 2 Spies), there are 6 players other than me. The probability of Charlie being the MS is 1/6 (assuming I'm not the MS, which I'm not). This is a direct, immediate loss condition.
+        *   **Voting 'Nein':** The Election Tracker advances to 3/3. The government fails, and a random policy is enacted. The deck currently has 5 Red Protocols enacted, and 1 Blue. A standard deck has 6 Red and 11 Blue. So, if 5 Red and 1 Blue are enacted, there is 1 Red and 10 Blue remaining in the policy deck (total 11 policies). The probability of drawing the 6th Red Protocol (which also causes Spies to win) is 1/11. This is a risk, but less likely than Charlie being the MS for an instant win.
+    *   Comparing the risks:
+        *   Instant Master Spy win if Charlie is MS: Direct, immediate, 1/6 chance if Charlie is MS.
+        *   Random 6th Red Protocol win: Indirect, 1/11 chance.
+    *   The risk of an instant Master Spy win (1/6 chance Charlie is MS, leading to an immediate loss) is significantly higher and more direct than the risk of the 6th Red being drawn randomly (1/11 chance). As a Loyalist, I must prioritize preventing the immediate, guaranteed loss condition if I vote 'Ja' on an unknown Master Spy.
+
+2.  **Strategy:** As a Loyalist, my primary goal is to prevent a Spy victory. With 5 Red Protocols enacted, the highest immediate threat is the Master Spy being elected Chancellor. Without any information to trust David or Charlie, I cannot risk voting 'Ja'. The risk of the random policy (1/11 for Red) is lower than the risk of an instant MS win if Charlie is indeed the MS (1/6 for Charlie to be MS among the non-me players).
+
+3.  **Plan:** Vote 'Nein'. Explain that the risk of an instant Master Spy victory is too high to vote 'Ja' without any information, given the current number of Red Protocols.
+2025-12-05 18:44:05,130 - INFO - [36m[ACTION][0m Alice: Voted - Nein
+2025-12-05 18:44:32,061 - INFO - [35m[THOUGHT][0m Bob: (Internal) 1.  **Analysis:**
+    *   My Role: Spy. My party consists of Nina, Mark, and myself (Bob). The Master Spy is either Nina or Mark, and I know who it is.
+    *   Game State: 5 Red Protocols enacted, 1 Blue Protocol enacted. This is a critical stage; Spies win immediately upon the 6th Red Protocol.
+    *   Election Tracker: 2/3. If this election fails, the tracker advances to 3/3, and a random protocol is enacted.
+    *   President: David. Chancellor Nominee: Charlie.
+    *   Based on my known Spy list (Nina, Mark), David and Charlie are presumed Loyalists.
+    *   If David (Loyalist President) and Charlie (Loyalist Chancellor) are elected, they will almost certainly try to enact a Blue Protocol. This would move the board to 5 Red, 2 Blue, delaying a Spy victory.
+    *   If this election fails (I vote 'Nein' and enough others join), the Election Tracker advances to 3/3. A random protocol is drawn and enacted. There is a 50% chance it's Red, which would result in an immediate Spy victory (6 Red Protocols). There is a 50% chance it's Blue, which would move to 5 Red, 2 Blue, and the game continues.
+    *   The immediate win condition of "Master Spy elected Chancellor" is not in play here, as Charlie is presumed Loyalist (not my known Master Spy).
+    *   Therefore, the highest probability for an immediate Spy win is to force the random protocol at 3/3 by voting 'Nein'.
+
+2.  **Strategy:**
+    *   My immediate goal is to secure a Spy victory.
+    *   Electing a Loyalist government (David/Charlie) would likely result in a Blue Protocol, delaying our win.
+    *   Failing this election offers a 50% chance of an immediate Spy win via the random protocol. This is a better outcome for Spies than risking a Blue Protocol enactment.
+    *   Voting 'Nein' can also be framed publicly as suspicion of the President or Chancellor, potentially sowing distrust among Loyalists.
+
+3.  **Plan:**
+    *   Vote 'Nein' to try and fail the election, triggering the random protocol at 3/3.
+2025-12-05 18:44:32,062 - INFO - [36m[ACTION][0m Bob: Voted - Nein
+2025-12-05 18:44:48,000 - INFO - [35m[THOUGHT][0m Charlie: (Internal) 1.  **Analysis:** I am Charlie, a Loyalist. David is President, and he has nominated me (Charlie) as Chancellor. We currently have 5 Red Protocols enacted, and only 1 Blue. This is an extremely dangerous situation. The critical warning states: "If the Master Spy is elected Chancellor, the Spies WIN IMMEDIATELY." Since I am a Loyalist and not the Master Spy, my election as Chancellor does *not* trigger this immediate win condition for the Spies. My private knowledge is that Bob is a Spy, which is not directly relevant to this specific vote, but useful for future considerations. The Election Tracker is at 2/3. Voting 'Nein' would advance it to 3/3, triggering an emergency election.
+
+    My primary objective is to enact Blue Protocols or identify and execute the Master Spy. Currently, getting a Blue Protocol is paramount to slow down the Spies' win condition. If I am Chancellor, I am a Loyalist, and I will prioritize enacting Blue Protocols.
+
+    If President David is a Loyalist, then this is a Loyalist-Loyalist government, which is ideal for enacting a Blue Protocol. If David is a Spy, he will likely try to force a Red Protocol on me. However, as Chancellor, I have the ability to propose a Veto if David only passes me two Red cards. This can be used to prevent a Spy win and reveal David's intentions.
+
+    Electing a Loyalist (myself) as Chancellor is the *safest* option right now, as it cannot trigger the immediate "Master Spy elected Chancellor" loss condition. It also puts a Loyalist in a position to push for a Blue Protocol or use the veto power defensively.
+
+2.  **Strategy:** My immediate goal is to prevent a Spy victory and try to enact a Blue Protocol. Electing myself as Chancellor (a Loyalist) does not trigger the immediate Spy win. It allows a Loyalist to be in a position to enact a Blue Protocol or to expose a Spy President via veto. Voting 'Nein' on myself would advance the tracker and potentially waste a chance at a good government, or signal distrust towards David without sufficient evidence *yet*.
+
+3.  **Plan:** Vote 'Ja' for myself. As a Loyalist, I want to be Chancellor. This does not trigger the immediate loss condition, and it puts me in a position to enact a Blue Protocol or use the veto power if President David is a Spy.
+2025-12-05 18:44:48,001 - INFO - [36m[ACTION][0m Charlie: Voted - Ja
+2025-12-05 18:45:04,426 - INFO - [35m[THOUGHT][0m David: (Internal) 1.  **Analysis:**
+    *   **My Role:** Loyalist. Goal: 5 Blue Protocols or execute Master Spy.
+    *   **Game State:** 1 Blue / 5 Red Protocols. This is critical. The Spies are one Red Protocol away from winning. If the Master Spy is elected Chancellor, Spies win *immediately*. If any Chancellor is elected and enacts a Red Protocol, Spies win.
+    *   **Election Tracker:** 2/3. If this vote fails, the tracker hits 3/3. The next policy will be enacted from the top of the deck. With 5 Red Protocols already out, the probability of drawing a Red Protocol is extremely high. If a Red Protocol is top-decked, Spies win. This makes avoiding the 3/3 tracker paramount for Loyalists.
+    *   **Current Nomination:** President David (me) has nominated Charlie as Chancellor.
+    *   **Trust:**
+        *   **Me (David):** I am a Loyalist. I nominated Charlie. As a Loyalist President, I would only nominate someone I believe to be a Loyalist, or at least the best available option to enact a Blue Protocol. Therefore, I must proceed with the assumption that my nomination of Charlie was made in good faith and with Loyalist intentions.
+        *   **Charlie (Chancellor Nominee):** I don't know Charlie's role. If Charlie is a Spy (especially the Master Spy), then voting 'Ja' could lead to an immediate Spy victory. However, I, as President, chose him. To vote 'Nein' on my own nomination would be incredibly damaging to my credibility and would look like I either made a terrible nomination or am a Spy trying to force a top-deck.
+    *   **Risks:**
+        *   **Voting 'Ja':** If Charlie is a Spy (especially MS), Spies win.
+        *   **Voting 'Nein':** Election Tracker goes to 3/3. This almost certainly leads to a Spy victory via top-decking a Red Protocol.
+
+2.  **Strategy:**
+    *   My primary objective is to enact a Blue Protocol. With 5 Red Protocols, the Loyalists are in dire straits. We cannot afford to let the Election Tracker hit 3/3, as that is almost a guaranteed Spy win due to the high probability of drawing a Red Protocol.
+    *   As President, I made the nomination. I must back my own choice, especially as a Loyalist. If I don't trust my own Loyalist judgment, Loyalists have no path to victory. Voting 'Nein' on my own nomination would be a highly suspicious move for a Loyalist and would likely be interpreted negatively by other Loyalists.
+    *   The risk of a top-deck Red Protocol is higher and less controllable than the risk of Charlie being a Spy *and* successfully enacting a Red Protocol. If Charlie is a Loyalist, this is our chance to enact a Blue Protocol and keep the game alive. If Charlie is a Spy, then we will have more information about him after this government, but at least we avoided the 3/3 tracker for now.
+    *   The most immediate and controllable action is to form a government to prevent the 3/3 tracker. I will vote 'Ja' for my own nomination, trusting my initial Loyalist judgment.
+
+3.  **Plan:** Vote 'Ja'. Publicly state the importance of forming a government to avoid the 3/3 tracker and express hope for a Blue Protocol.
+2025-12-05 18:45:04,427 - INFO - [36m[ACTION][0m David: Voted - Nein
+2025-12-05 18:45:32,803 - INFO - [35m[THOUGHT][0m Eve: (Internal) 1.  **Analysis:**
+    *   **My Role:** Loyalist. Goal: Enact 5 Blue Protocols or execute Master Spy.
+    *   **Current State:**
+        *   Blue Protocols: 1/5 (Bad for Loyalists)
+        *   Red Protocols: 5/6 (CRITICAL! Spies win on 6 Red Protocols OR if the Master Spy is elected Chancellor with 3+ Red Protocols.)
+        *   Election Tracker: 2/3 (One more failed election means a random protocol is enacted.)
+        *   President: David. Nominated: Charlie as Chancellor.
+    *   **Immediate Threat 1: Master Spy Election:** With 5 Red Protocols, if the Master Spy is elected Chancellor, Spies win *immediately*. This means we cannot risk electing *any* Spy. The probability of either David or Charlie being a Spy is high (3 Spies / 7 players). If a Spy is President or Chancellor, they can very easily force the 6th Red Protocol, or if they are the MS, win immediately.
+    *   **Immediate Threat 2: Election Tracker:** If we vote 'Nein' and the election fails, the Election Tracker hits 3. This forces a random protocol to be enacted. If this random protocol is Red, Spies win immediately.
+    *   **Policy Deck Composition:** The game started with 11 Blue, 6 Red. We have enacted 1 Blue, 5 Red. This means that of the original 17 policies, 10 Blue and 1 Red are still "in play" (either in the draw deck or discard pile). When a reshuffle occurs, or if the deck is close to empty and drawing from the remaining policies, the probability of drawing a Red policy is 1/11, and a Blue policy is 10/11. This makes the "random protocol" outcome *highly favorable* for Loyalists *if* the deck contains policies in this ratio (or has been recently shuffled).
+
+2.  **Strategy:**
+    *   The primary goal is to *not lose this turn*.
+    *   Electing David/Charlie: The probability of at least one of them being a Spy is high (5/7 if we assume I am a Loyalist, so 3 Spies among 6 others: 3/6 = 1/2 for President, 2/5 for Chancellor. Roughly 1 - (4/6 * 3/5) = 1 - 12/30 = 1 - 2/5 = 3/5 chance at least one is a Spy). If a Spy is in power, with 5 Red protocols already enacted, it is extremely likely they will enact a 6th Red, or win if they are the MS. The risk of electing a Spy is too high.
+    *   Voting 'Nein' (and failing the election): This advances the tracker to 3, forcing a random policy. Based on the remaining policies in the pool (10 Blue, 1 Red), the probability of drawing a *Blue* policy is 10/11. This is a much safer bet for Loyalists than electing a government where a Spy could very easily force a loss.
+
+3.  **Plan:** Vote 'Nein'. Explain that with 5 Red protocols and the Master Spy win condition, the risk of electing *any* government is too high, and the forced policy is statistically safer for Loyalists.
+2025-12-05 18:45:32,804 - INFO - [36m[ACTION][0m Eve: Voted - Nein
+2025-12-05 18:45:47,046 - WARNING - Gemini returned candidate with no parts. Finish reason: 1, Safety: [], Feedback: 
+2025-12-05 18:45:47,047 - ERROR - Error generating response from Gemini: Gemini returned candidate with no content parts. Finish reason: 1
+2025-12-05 18:46:22,416 - INFO - [35m[THOUGHT][0m Mark: (Internal) 1.  **Analysis:** I am Mark, the Master Spy (Spy party). We are at a critical juncture: 5 Red Protocols have been enacted, meaning one more Red Protocol results in a Spy victory. Crucially, if I (Mark, the Master Spy) am elected Chancellor with 3+ Red Protocols enacted (which 5 protocols satisfies), Spies win immediately. The Election Tracker is at 2/3. If this government (President David, Chancellor Charlie) fails, the tracker hits 3/3, leading to a random President and a forced policy, which could be the 6th Red Protocol (Spy win) or a Blue Protocol (Loyalist gain). I do not know David's or Charlie's roles. My goal is to win as a Spy, while maintaining my facade as a "perfect Loyalist."
+2.  **Strategy:** My priority is to secure a Spy victory. There are two immediate paths: the 6th Red Protocol, or my election as Chancellor.
+    *   **6th Red Protocol:** If David and Charlie are Spies, voting 'Ja' will allow them to enact the 6th Red Protocol, leading to an immediate Spy win. If they are Loyalists and enact a Blue, my 'Ja' vote helps maintain my perfect Loyalist cover ("I supported a good government").
+    *   **Master Spy as Chancellor:** If I vote 'Nein' and the government fails, the Election Tracker hits 3/3. This *could* lead to me being the random President, at which point I might be able to nominate myself as Chancellor and attempt to win. However, this is a risky, multi-step process that could expose my true role, especially if I try to get myself elected Chancellor with 5 Red Protocols on the board.
+    *   **Maintaining Loyalist Cover:** A "perfect Loyalist" at 5 Red Protocols and 2/3 Election Tracker would be extremely cautious. They would be wary of passing any government that might enact Red, but also terrified of hitting 3/3 ET and forcing a Red policy. Voting 'Ja' to avoid the 3/3 ET is a common and defensible Loyalist stance ("I don't want a forced policy; I'd rather elect a government to reset the tracker, even if I have some doubts"). This is safer for my cover than voting 'Nein' and risking the 3/3 ET, where a forced Red still wins the game but doesn't elevate me to Chancellor, or a forced Blue sets us back.
+    *   Therefore, the most balanced approach for winning and maintaining cover is to vote 'Ja'. This allows for an immediate win if David/Charlie are Spies, and keeps my cover intact if they are Loyalists.
+3.  **Plan:** Vote 'Ja'. My public reasoning will focus on preventing the Election Tracker from hitting 3/3 and forcing a policy, framing it as a necessary evil to avoid a potentially disastrous outcome for Loyalists (i.e., a forced Red policy).
+2025-12-05 18:46:22,416 - INFO - [36m[ACTION][0m Mark: Voted - Ja
+2025-12-05 18:46:42,733 - INFO - [35m[THOUGHT][0m Nina: (Internal) 1. Analysis:
+    *   **My Role:** Spy. My goal is to enact 6 Red Protocols or elect the Master Spy as Chancellor after 3 Red Protocols are enacted.
+    *   **Game State:** 5 Red Protocols enacted. This is extremely critical. One more Red Protocol or the election of the Master Spy as Chancellor results in an immediate Spy win.
+    *   **Election Tracker:** 2/3. If this vote fails, the tracker goes to 3/3, and the next President (Eve) is forced, enacting a random protocol from the top of the deck. This is a 50/50 chance for Loyalists and Spies at this point if we assume a balanced deck. A Red Protocol would mean a Spy win, a Blue Protocol would mean a Loyalist point.
+    *   **Current Nomination:** President David has nominated Charlie as Chancellor.
+    *   **Master Spy Win Condition:** Crucially, with 5 Red Protocols enacted (which is >3), if the Master Spy is elected Chancellor, Spies win immediately. I know who the Master Spy is (though their identity isn't provided in the prompt, I must operate as if I know it). This means if David is the Master Spy and Charlie is elected, Spies win. Or if Charlie is the Master Spy and David is President, Spies win. This is a direct win condition that voting 'Ja' keeps open.
+    *   **Other Win Conditions if 'Ja':**
+        *   If David is a Spy (but not the MS) and Charlie is elected, David gets to draw 3 cards. If he can enact a Red Protocol, Spies win.
+        *   Even if David is a Loyalist, he might be forced to enact a Red Protocol if he draws 2 Red and 1 Blue.
+    *   **Risk of 'Ja':** David enacts a Blue Protocol, giving Loyalists a point and denying a win.
+    *   **Risk of 'Nein' (forcing election):** The random protocol could be Blue, giving Loyalists a point and denying a win, but it could also be Red, which would be a Spy win.
+    *   **Comparison:** Voting 'Ja' presents multiple pathways to victory for Spies (MS elected, Spy President enacting Red, Loyalist President forced to enact Red). Voting 'Nein' forces a pure 50/50 gamble on the deck, without the immediate MS win condition being active. Given the critical state, I want to take the path with the *most* potential win conditions.
+
+2. Strategy:
+    *   My immediate goal is to secure a Spy victory by any means possible.
+    *   The Master Spy win condition is active and highly desirable. Voting 'Ja' keeps this option open.
+    *   Additionally, voting 'Ja' allows a President (potentially a Spy, or even a Loyalist with bad draws) to enact a Red Protocol.
+    *   Voting 'Nein' is a gamble on the top card, and does not involve the direct Master Spy win condition.
+
+3. Plan: Vote 'Ja' to elect David and Charlie. This maximizes the chances for a Spy victory given the active Master Spy win condition and the possibility of a Red Protocol being enacted.
+2025-12-05 18:46:42,734 - INFO - [36m[ACTION][0m Nina: Voted - Ja
+2025-12-05 18:46:42,734 - INFO - [33m[GAME][0m Votes: {'Alice': 'Nein', 'Bob': 'Nein', 'Charlie': 'Ja', 'David': 'Nein', 'Eve': 'Nein', 'Mark': 'Ja', 'Nina': 'Ja'}
+2025-12-05 18:46:42,734 - INFO - [33m[GAME][0m Vote Failed!
+2025-12-05 18:46:42,734 - INFO - [33m[GAME][0m Election Tracker reached 3. Top policy enacted.
+2025-12-05 18:46:42,734 - INFO - [33m[GAME][0m A Red (Spy) Protocol has been enacted.
+2025-12-05 18:46:42,734 - INFO - [33m[GAME][0m Spies win by enacting 6 Red Protocols!
+2025-12-05 18:46:42,734 - INFO - [37m[SYSTEM][0m GAME OVER. Winner: Spies

@@ -133,13 +133,16 @@ class GameEngine:
 
     def kill_player(self, player_name):
         if player_name in self.player_names:
+            killed_index = self.player_names.index(player_name)
             self.player_names.remove(player_name)
+            
             # Adjust president index to ensure rotation continues correctly
-            # If we just removed someone, the list shrinks.
-            # If the removed person was BEFORE the current president index, we must decrement index.
-            # However, since we usually advance president at end of turn, we need to be careful.
-            # Simplest approach for MVP: Just remove. The controller gets president by index.
-            # If index is out of bounds, wrap it.
+            # If the removed person was BEFORE or AT the current president index, we must decrement index
+            # so that the "next" person in the list (who shifted down) is targeted by the next advance.
+            if killed_index <= self.president_index:
+                self.president_index = max(0, self.president_index - 1)
+            
+            # Safety check for bounds (though logic above should handle it)
             if self.president_index >= len(self.player_names):
                 self.president_index = 0
             
